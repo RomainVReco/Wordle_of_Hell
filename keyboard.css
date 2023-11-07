@@ -21,17 +21,18 @@
     background-color: brown;
     border: 1 solid black;
     border-radius: 5px;
-    height:2rem;
-    width: 2rem;
+    height:2.5rem;
+    width: 2.5rem;
     text-align: center;
     line-height: 28px;
+    font-size: 1rem;
 }
 
 .enter {
     background:greenyellow ;
     border-radius: 5px;
-    height: 2rem;
-    width: 4.5rem;
+    height: 2.5rem;
+    width: 5.625rem;
     text-align: center;
     line-height: 28px;
     grid-column: 7/9;
@@ -41,8 +42,8 @@
 .backspace {
     background:orangered ;
     border-radius: 5px;
-    height: 2rem;
-    width: 4.5rem;
+    height: 2.5rem;
+    width: 5.625rem;
     text-align: center;
     line-height: 28px;
     grid-column: 9/11;
