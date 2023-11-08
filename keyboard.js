@@ -1,11 +1,19 @@
+import {allWords} from './words.js'
+import './control_function.js'
+
+
 const letters = [
     "A", "Z", "E", "R", "T", "Y", "U", "I", "O", "P",
     "Q", "S", "D", "F", "G", "H", "J", "K", "L", "M",
     "W", "X", "C", "V", "B", "N"
 ]
-
+const words = allWords()
 const enter = "ENTER"
 const backspace = "◄"
+var userProposition = []
+var numberLetters = 5
+
+
 
 function displayLetters(){
     let new_key
@@ -33,15 +41,29 @@ function displayLetters(){
     keyboard.append(backspace_key)
 }
 
+
 displayLetters()
 
+var allKeysKeyboard = document.querySelectorAll('.letter')
+
+// Récupération via un forEach des valeurs des touches du clavier :
+allKeysKeyboard.forEach((element) => {
+    element.addEventListener("click", function() {
+        getLetterKey(element.innerHTML, userProposition, numberLetters)
+    });
+});
+
+console.log(userProposition)
+
+
 // listener clavier
-document.getElementById('letter-key').addEventListener('click', function(){
-    getLetterKey()
-});
 document.getElementById('enter-key').addEventListener('click', function(){
-    checkUserWord()
+    if (checkWordExists()) {
+        checkUserWord()
+    }
+    else errorUserInput("Le mot n'existe pas")
 });
+
 document.addEventListener('keydown', function(event){
     if (event.key === 'Enter') {
         checkUserWord()
