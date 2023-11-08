@@ -47,7 +47,7 @@ var allKeysKeyboard = document.querySelectorAll('.letter')
 
 // Récupération via un forEach des valeurs des touches du clavier :
 allKeysKeyboard.forEach((element) => {
-    element.addEventListener("click", function() {
+    element.addEventListener('click', function() {
         userWord = mesControles.getLetterKey(element.innerHTML, userWord, numberLetters)
     })
 })
@@ -88,7 +88,6 @@ document.getElementById('enter-key').addEventListener('click', function(){
         userTries += 1
         console.log(userTryChecked)
     }
-    // console.log(userTryChecked.size)
     if ((userTryChecked !=undefined) && (userTryChecked.size == numberLetters)) {
         updateKeyboardColor(userTryChecked)
         userAttempts.push(userWord)
@@ -97,9 +96,20 @@ document.getElementById('enter-key').addEventListener('click', function(){
     }
 });
 
+// problème de fonctionnement avec la touche entrée ==> elle permet la saisie d'une lettre aussi 
 document.addEventListener('keydown', function(event){
     if (event.key === 'Enter') {
-        mesControles.checkUserWord()
+        if (mesControles.checkUserWordLength(userWord, numberLetters) && (mesControles.checkWordExists(userWord, words))) {
+            var userTryChecked = mesControles.checkUserWord(userWord,motMystere)
+            userTries += 1
+            console.log(userTryChecked)
+        }
+        if ((userTryChecked !=undefined) && (userTryChecked.size == numberLetters)) {
+            updateKeyboardColor(userTryChecked)
+            userAttempts.push(userWord)
+            mesControles.checkNumberOfTries(nombreEssais, userTries)
+            userWord = []
+        }
     }
 });
 document.getElementById('back-key').addEventListener('click', function(){
@@ -114,7 +124,13 @@ document.getElementById('back-key').addEventListener('click', function(){
 });
 document.addEventListener('keydown', function(event){
     if (event.key === 'Backspace') {
-        eraseLastEntry()
+        if (userWord.length != 0) {
+            userWord = mesControles.eraseLastEntry(userWord)
+            console.log(userWord)
+        }
+        else {
+            return
+        }
     }
 });
 
