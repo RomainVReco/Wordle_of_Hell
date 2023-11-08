@@ -41,23 +41,25 @@ window.addEventListener('click', function(event) {
 
 // Pour cleaner le HTML :
 // Fonction pour générer la grille en fonction du nombre d'essais et de lettres :
-// function genererGrille(nombresLignes, nombresLettres) {
-//     let conteneurMots = document.createElement('div');
-//     conteneurMots.classList.add('conteneurMots');
+function genererGrille(nombresEssais, nombresLettres) {
+    let parent = document.querySelector('.motsJoueur');
+    let conteneurMots = document.createElement('div');
+    conteneurMots.classList.add('conteneurMots');
 
-//     for (let i = 0; i < nombresLignes; i++) {
-//         let ligneMot = document.createElement('div');
-//         ligneMot.classList.add('ligneMot');s
+    for (let i = 0; i < nombresEssais; i++) {
+        let ligneMot = document.createElement('div');
+        ligneMot.classList.add('ligneMot');
 
-//         for (let j = 0; j < nombresLettres; j++) {
-//             let mot = document.createElement('div');
-//             mot.classList.add('mot');
-//             ligneMot.appendChild(mot);
-//         }
-//         conteneurMots.appendChild(ligneMot);
-//     }
-//     return conteneurMots;
-// }
+        for (let j = 0; j < nombresLettres; j++) {
+            let mot = document.createElement('div');
+            mot.classList.add('mot');
+            ligneMot.append(mot);
+        }
+        conteneurMots.append(ligneMot);
+    }
+    parent.append(conteneurMots);
+}
+genererGrille(nombresEssais, nombresLettres);
 // const resultatGrille = genererGrille(nombresEssais, nombresLettres);
 // const divConteneurMots = document.querySelector('.conteneurMots');
 // divConteneurMots.appendChild(resultatGrille);
