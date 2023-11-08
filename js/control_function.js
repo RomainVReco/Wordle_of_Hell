@@ -76,6 +76,34 @@ export function checkUserWord(userWord, motMystere){
     }
     return userWordChecked;
 }
+
+export function checkNumberOfTries(numberOfTry, userTries){
+    if (userTries == numberOfTry ){
+        lostGame()
+    }
+
+}
+
+export function eraseLastEntry(userWord){
+    if (userWord.length != 0)  {
+        userWord.pop()
+        return userWord
+    }
+    else return
+}
+// export function checkVictory(userWordChecked, numberLetters){
+//     let correctLetters = 0
+//     for (const x of userWordChecked.values()){
+//         if (x[0] == 1){
+//             correctLetters += 1
+//         }
+//     }
+//     if (correctLetters == numberLetters.length){
+//         return true
+//     }
+//     else false
+// }
+
 // export function checkVictory(userWordChecked, numberLetters){
 //     let correctLetters = 0
 //     for (const x of userWordChecked.values()){

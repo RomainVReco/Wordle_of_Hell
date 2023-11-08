@@ -10,8 +10,10 @@ const words = allWords()
 const enter = "ENTER"
 const backspace = "◄"
 var userWord = []
+var userAttempts = []
 var numberLetters = 5
 const nombreEssais = 6
+var userTries = 0
 const motMystere = "SUPER"
 
 function displayKeyboards(){
@@ -44,11 +46,10 @@ var allKeysKeyboard = document.querySelectorAll('.letter')
 
 // Récupération via un forEach des valeurs des touches du clavier :
 allKeysKeyboard.forEach((element) => {
-    element.addEventListener("click", function() {
+    element.addEventListener('click', function() {
         userWord = mesControles.getLetterKey(element.innerHTML, userWord, numberLetters)
     })
 })
-
 
 function updateKeyboardColor(checkedMap){
     console.log("Je suis dans la fonction updateKeyboardColor")
@@ -82,26 +83,51 @@ console.log(userWord)
 document.getElementById('enter-key').addEventListener('click', function(){
     if (mesControles.checkUserWordLength(userWord, numberLetters) && (mesControles.checkWordExists(userWord, words))) {
         var userTryChecked = mesControles.checkUserWord(userWord,motMystere)
+        userTries += 1
         console.log(userTryChecked)
     }
-    // console.log(userTryChecked.size)
     if ((userTryChecked !=undefined) && (userTryChecked.size == numberLetters)) {
         updateKeyboardColor(userTryChecked)
+        userAttempts.push(userWord)
+        mesControles.checkNumberOfTries(nombreEssais, userTries)
         userWord = []
     }
 });
 
+// problème de fonctionnement avec la touche entrée ==> elle permet la saisie d'une lettre aussi 
 document.addEventListener('keydown', function(event){
     if (event.key === 'Enter') {
-        mesControles.checkUserWord()
+        if (mesControles.checkUserWordLength(userWord, numberLetters) && (mesControles.checkWordExists(userWord, words))) {
+            var userTryChecked = mesControles.checkUserWord(userWord,motMystere)
+            userTries += 1
+            console.log(userTryChecked)
+        }
+        if ((userTryChecked !=undefined) && (userTryChecked.size == numberLetters)) {
+            updateKeyboardColor(userTryChecked)
+            userAttempts.push(userWord)
+            mesControles.checkNumberOfTries(nombreEssais, userTries)
+            userWord = []
+        }
     }
 });
 document.getElementById('back-key').addEventListener('click', function(){
-        eraseLastEntry()
+    if (userWord.length != 0) {
+        userWord = mesControles.eraseLastEntry(userWord)
+        console.log(userWord)
+    }
+    else {
+        return
+    }
 });
 document.addEventListener('keydown', function(event){
     if (event.key === 'Backspace') {
-        eraseLastEntry()
+        if (userWord.length != 0) {
+            userWord = mesControles.eraseLastEntry(userWord)
+            console.log(userWord)
+        }
+        else {
+            return
+        }
     }
 });
 
