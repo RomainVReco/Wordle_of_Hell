@@ -1,11 +1,13 @@
-// import getLetterKey from control_function
+import {allWords} from './words.js'
+import {getLetterKey} from './control_function.js'
+
 
 const letters = [
     "A", "Z", "E", "R", "T", "Y", "U", "I", "O", "P",
     "Q", "S", "D", "F", "G", "H", "J", "K", "L", "M",
     "W", "X", "C", "V", "B", "N"
 ]
-
+const words = allWords()
 const enter = "ENTER"
 const backspace = "◄"
 var userProposition = []
@@ -47,19 +49,11 @@ var allKeysKeyboard = document.querySelectorAll('.letter')
 // Récupération via un forEach des valeurs des touches du clavier :
 allKeysKeyboard.forEach((element) => {
     element.addEventListener("click", function() {
-        getLetterKey(element.innerHTML)
+        getLetterKey(element.innerHTML, userProposition, numberLetters)
     });
 });
 
-function getLetterKey(letter){
-    if (userProposition.length == numberLetters) {
-        return 
-    }
-    console.log(element)
-    userProposition.push(letter)
-}
-
-
+console.log(userProposition)
 
 
 // listener clavier
