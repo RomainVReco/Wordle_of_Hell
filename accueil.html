@@ -6,9 +6,7 @@
     <link rel="stylesheet" href="./style_accueil.css">
     <link rel="stylesheet" href="./regles.css">
     <link rel="stylesheet" href="./headerfooter.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./modalmodejeu.css">
     <link 
         rel="stylesheet" 
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
@@ -44,8 +42,19 @@
             </div>
         </div>
         <div id="pluieDeLettres"></div>
-        <div class="play">
-            <a href="./index.html"><i class="fa-solid fa-circle-play"> PLAY</i></a>
+        <div class="boutonRegles2">
+            <div class="reglesDuJeu" id="ouvrirMode">
+                <i class="fa-solid fa-circle-play"> PLAY</i>
+            </div>
+            <div id="maModal2" class="modal2">
+                <div class="contenu-modal2">
+                    <span class="fermer2">&times;</span>
+                    <h2>Choix du mode de jeu</h2>
+                    <a href="./index.html">Mode simple</a>
+                    <a href="#">Mode 2 joueurs</a>
+                    <a href="#">Mode double Wordle</a>       
+                </div>
+            </div>
         </div>
         <footer>
             <p>&copy; 2023 Romain et Robin. Tous droits réservés.</p>
@@ -53,6 +62,8 @@
     </main>
     <script src="./script_accueil.js"></script>
     <script src="./rules.js"></script>
+    <script src="./modalmodejeu.js"></script>
+
 </body>
 
 </html>
