@@ -15,7 +15,7 @@ var numberLetters = 5
 
 
 
-function displayLetters(){
+function displayKeyboards(){
     let new_key
     let keyboard = document.getElementById('keyboard')
     for (let i = 0; i < letters.length; i++) {
@@ -42,7 +42,7 @@ function displayLetters(){
 }
 
 
-displayLetters()
+displayKeyboards()
 
 var allKeysKeyboard = document.querySelectorAll('.letter')
 
