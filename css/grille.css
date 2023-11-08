@@ -1,0 +1,48 @@
+.motsJoueur {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+.conteneurMots {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ligneMot {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.mot {
+    border: 1px solid #119F00;
+    width: 4em;
+    height: 4em;
+    margin-right: 0.4em;
+    margin-bottom: 0.4em;
+    background-color: black;
+    color: white;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mot-vert{
+    background-color: #18ec00 !important;
+    color: white !important;
+}
+
+.mot-jaune{
+    background-color: #e0ec00 !important;
+    color: white !important; 
+}
+
+.mot-gris{
+    background-color: #8e8e8e !important;
+    color: white !important;
+}

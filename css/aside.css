@@ -1,0 +1,21 @@
+aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
+
+aside div {
+    background-color: black;
+    color: white;
+    border-radius: 3px;
+    border: 1px solid #119F00;
+    width: 15em;
+    text-align: center;
+    padding: 1em;
+    margin: 2em;
+}
+
+
+
+

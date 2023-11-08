@@ -1,0 +1,61 @@
+body {
+    width: 100%;
+    background:linear-gradient(rgb(0, 0, 83),rgb(0, 0, 27));
+    height: 100vh;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+h1 {
+  font-size: 8em !important;
+  margin:0 !important;
+}
+
+/* Style pour les lettres */
+.letter {
+    position: absolute;
+    font-size: 20px;
+    color: #fff;
+    animation: fall 5s linear infinite; /* Animation de chute */
+}
+  
+/* Animation de chute des lettres */
+@keyframes fall {
+    from {
+      top: -50px; /* Position de départ en haut */
+    }
+    to {
+      top: 100vh; /* Position d'arrivée en bas */
+    }
+}
+
+/* Styles de base pour la div bouton */
+.play {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff; /* Couleur du texte */
+  text-decoration: none;
+  padding: 1em;
+  margin: 2em;
+  border-radius: 5px;
+  margin-bottom: 10%;
+  transition: background-color 0.3s;
+}
+
+/* Lorsque le curseur survole le bouton, la couleur change */
+.play:hover {
+  background-color: #2980b9; /* Nouvelle couleur de fond au survol */
+}
+
+.boutonRegles:hover {
+  background-color: #2980b9; /* Nouvelle couleur de fond au survol */
+}
