@@ -24,8 +24,7 @@ aside {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    
+    align-items: center; 
 }
 
 aside div {
@@ -33,6 +32,23 @@ aside div {
     color: white;
     border-radius: 3px;
     border: 1px solid #119F00;
+    width: 15em;
+    text-align: center;
+    padding: 1em;
+    margin: 2em;
+}
+
+aside .timer {
+    width: 7em;
+}
+
+.boutonRegles{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 3px;
     width: 15em;
     text-align: center;
     padding: 1em;
@@ -47,7 +63,6 @@ aside div {
 .header h1 {
     color: black;
     -webkit-text-stroke: 1px #119F00; 
-    text-stroke: 1px #119F00;
     font-weight: 800;
     text-align: center;
     font-size: 4em;
@@ -131,3 +146,73 @@ footer {
     color: white !important;
 }
 
+#ouvrirRegles {
+    cursor: pointer;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7); 
+}
+
+
+.contenu-modal {
+    color: white;
+    background-color: rgba(0,0,0,0.7); 
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #119F00;
+    width: 90%;
+}
+
+.contenu-modal h2{
+    font-size: 3em;
+    padding: 1em;
+}
+
+.contenu-modal p{
+    width: fit-content;
+    text-align: left;
+    font-size: 1.5em;
+    margin-left: 10%;
+
+}
+
+.fermer {
+    color: rgb(112, 0, 0);
+    float: right;
+    padding: 0.1em;
+    font-size: 40px;
+    font-weight: bold;
+    border:1px solid rgb(112, 0, 0);
+}
+
+.fermer:hover,
+.fermer:focus {
+    color: rgb(255, 0, 0);
+    border:1px solid rgb(255, 0, 0);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+i {
+    color: #119F00;
+    -webkit-text-stroke: 2px black; 
+    font-weight: 800;
+    font-size: 3em;
+}
+
+
+.nombreDEssais {
+    display: flex;
+    justify-content: center;
+}
+
+.nombreDEssais p {
+    padding-right: 5px;
+}
