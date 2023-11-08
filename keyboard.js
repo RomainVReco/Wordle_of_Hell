@@ -1,5 +1,5 @@
 import {allWords} from './words.js'
-import {getLetterKey} from './control_function.js'
+import './control_function.js'
 
 
 const letters = [
@@ -58,8 +58,12 @@ console.log(userProposition)
 
 // listener clavier
 document.getElementById('enter-key').addEventListener('click', function(){
-    checkUserWord()
+    if (checkWordExists()) {
+        checkUserWord()
+    }
+    else errorUserInput("Le mot n'existe pas")
 });
+
 document.addEventListener('keydown', function(event){
     if (event.key === 'Enter') {
         checkUserWord()
