@@ -1,13 +1,26 @@
-import * as maGrille from './grilleJeu.js'
+// import * as maGrille from './grilleJeu.js'
 
 export function getLetterKey(letter, userWord, numberLetters) {
     if (userWord.length == numberLetters) {
-        return 
+        return userWord
     }
-    let tab_mot = maGrille.remplirMot(letter, userWord, numberLetters)
-    console.log(userWord)
-    return tab_mot
+    // A décommenter quand tout sera branché
+    // let tab_mot = maGrille.remplirMot(letter, userWord, numberLetters)
+    else {
+        userWord.push(letter)
+    }
+    console.log(userWord, userWord.length)
+    return userWord
+}
 
+export function checkUserWordLength(userWord, numberLetters){
+    if (userWord.length == numberLetters) {
+        return true
+    }
+    else {
+        errorUserInput("Le mot n'existe pas")
+        return false
+    }
 }
 
 // Concatene la proposition du joueur pour retourner un String
@@ -21,18 +34,27 @@ export function concatUserInput(userWord) {
 }
 
 // Vérifie si la saisie du joueur existe dans le référentiel
-export function checkWordExists(concatUserWord, words){
+export function checkWordExists(userWord, words){
+    let concatUserWord = concatUserInput(userWord)
     if ((words.includes(concatUserWord))) {
         return true
     }
-    else return false
+    else{
+        errorUserInput('Le mot ne fait pas ${numberLetters} lettres.')
+        return false
+    }
 }
 
 // Vérifie si la saisie du contient des lettres du mot mystère et renvoie une Map
-export function checkUserWord(words, userWord, motMystere){
+export function checkUserWord(userWord, motMystere){
+    let concatUserWord = concatUserInput(userWord)
     let breakMotMystere = ''
     const userWordChecked = new Map()
 
+    if (concatUserWord === motMystere) {
+        victory()
+    }
+    else {
     for (let j=0; j<motMystere.length; j++){
         breakMotMystere += motMystere[j]
     }
@@ -47,26 +69,23 @@ export function checkUserWord(words, userWord, motMystere){
         }
         else if (!(motMystere.includes(userWord[i]))) {
             userWordChecked.set(i, [0, userWord[i]])
-        }
+        } 
+    } 
+    return userWordChecked;
     }
-    return userWordChecked
 }
-
-export function checkVictory(userWordChecked, numberLetters, endGame, victory){
-    let conditionsVictoire = []
-    let correctLetters = 0
-    for (const x of userWordChecked.values){
-        if (x[0] == 1){
-            correctLetters += 1
-        }
-    }
-    if (correctLetters == numberLetters.length){
-        endGame = true;
-        victory = false;
-        let conditionsVictoire = [endGame, victory]
-    }
-    return conditionsVictoire
-}
+// export function checkVictory(userWordChecked, numberLetters){
+//     let correctLetters = 0
+//     for (const x of userWordChecked.values()){
+//         if (x[0] == 1){
+//             correctLetters += 1
+//         }
+//     }
+//     if (correctLetters == numberLetters.length){
+//         return true
+//     }
+//     else false
+// }
 
 export function errorUserInput(string){
     alert(string)

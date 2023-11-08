@@ -13,6 +13,7 @@ var userWord = []
 var numberLetters = 5
 const nombreEssais = 6
 const nombreLettres = 5
+const motMystere = "SUPER"
 
 function displayKeyboards(){
     let keyboard = document.getElementById('keyboard')
@@ -38,7 +39,6 @@ function displayKeyboards(){
     backspace_key.append(backspace)
     keyboard.append(backspace_key)
 }
-
 displayKeyboards()
 
 var allKeysKeyboard = document.querySelectorAll('.letter')
@@ -47,18 +47,31 @@ var allKeysKeyboard = document.querySelectorAll('.letter')
 allKeysKeyboard.forEach((element) => {
     element.addEventListener("click", function() {
         userWord = mesControles.getLetterKey(element.innerHTML, userWord, numberLetters)
-    });
-});
+    })
+})
+
+
+function updateKeyboardColor(checkedMap){
+    allKeysKeyboard.forEach((element) => {
+        for (let value of checkedMap.values()){
+            if (element.innerHTML == value[1]){
+                switch (value[0])
+            }
+        }
+
+    })
+}
 
 console.log(userWord)
 
 
 // listener clavier
 document.getElementById('enter-key').addEventListener('click', function(){
-    if (mesControles.checkWordExists()) {
-        mesControles.checkUserWord()
+    if (mesControles.checkUserWordLength(userWord, numberLetters)&& (mesControles.checkWordExists(userWord, words))) {
+        var userTryChecked = mesControles.checkUserWord(userWord,motMystere)
+        console.log(userTryChecked)
     }
-    else mesControles.errorUserInput("Le mot n'existe pas")
+    updateKeyboardColor(userTryChecked)
 });
 
 document.addEventListener('keydown', function(event){

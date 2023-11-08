@@ -1,7 +1,6 @@
+// import * as maGrille from './grilleJeu.js'
 import {allWords} from './words.js'
 import * as monKeyboard from './keyboard.js'
-import * as maGrille from './grilleJeu.js'
-
 
 const letters = [
     "A", "Z", "E", "R", "T", "Y", "U", "I", "O", "P",
@@ -12,5 +11,4 @@ const words = allWords()
 const nombreEssais = 6
 const nombreLettres = 5
 
-maGrille.genererGrille(nombreEssais, nombreLettres)
-monKeyboard.displayKeyboards() 
+// maGrille.genererGrille(nombreEssais, nombreLettres)
