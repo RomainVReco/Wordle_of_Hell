@@ -14,10 +14,23 @@ main{
   align-items: center;
   justify-content: space-between;
 }
-
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 h1 {
+  text-align: center;
+  width: 4em;
+  padding: 0.1em;
+  border-radius: 50%;
+  background-color: #297fb9;
   font-size: 8em !important;
   margin:0 !important;
+  border-top: 10px #002e4d double;
+  border-right: 10px #002e4d double;
+  border-bottom: 10px #002e4d double;
+  box-shadow: 6px 6px 0px #119F00;
 }
 
 /* Style pour les lettres */
