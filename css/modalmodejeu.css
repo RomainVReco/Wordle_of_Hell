@@ -1,4 +1,4 @@
-.boutonRegles{
+.boutonRegles2{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -11,10 +11,10 @@
     margin: 2em;
 }
 
-#ouvrirRegles {
+#ouvrirRegles2 {
     cursor: pointer;
 }
-.modal {
+.modal2 {
     display: none;
     position: fixed;
     z-index: 1;
@@ -26,7 +26,7 @@
 }
 
 
-.contenu-modal {
+.contenu-modal2 {
     color: white;
     background-color: rgba(0,0,0,0.7); 
     margin: 5% auto;
@@ -35,20 +35,24 @@
     width: 90%;
 }
 
-.contenu-modal h2{
+.contenu-modal2 h2{
     font-size: 3em;
     padding: 1em;
 }
 
-.contenu-modal p{
-    width: fit-content;
-    text-align: left;
+.contenu-modal2 a{
+    text-decoration: none;
+    color: white;
+    text-align: center;
     font-size: 1.5em;
-    margin-left: 10%;
-
+    padding: 0.8em;
 }
 
-.fermer {
+.contenu-modal2 a:hover{
+    color: #119F00;
+    font-size: 1.7em;
+} 
+.fermer2 {
     color: rgb(112, 0, 0);
     float: right;
     padding: 0.1em;
@@ -57,8 +61,8 @@
     border:1px solid rgb(112, 0, 0);
 }
 
-.fermer:hover,
-.fermer:focus {
+.fermer2:hover,
+.fermer2:focus {
     color: rgb(255, 0, 0);
     border:1px solid rgb(255, 0, 0);
     text-decoration: none;
@@ -72,7 +76,3 @@ i {
     font-size: 3em;
 }
 
-i:hover {
-    font-size: 4em;
-    box-shadow: 6px 6px 6px 6px rgb(73, 0, 0);
-}

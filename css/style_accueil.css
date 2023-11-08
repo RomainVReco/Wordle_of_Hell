@@ -1,11 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
 body {
-    width: 100%;
-    background:linear-gradient(rgb(0, 0, 83),rgb(0, 0, 27));
-    height: 100vh;
-    font-size: 14px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+  width: 100%;
+  background:linear-gradient(rgb(0, 0, 83),rgb(0, 0, 27));
+  height: 100vh;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 main{
@@ -14,11 +20,13 @@ main{
   align-items: center;
   justify-content: space-between;
 }
+
 .header {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 h1 {
   text-align: center;
   width: 4em;
@@ -52,7 +60,7 @@ h1 {
 }
 
 /* Styles de base pour la div bouton */
-.play {
+.boutonRegles2 {
   display: inline-block;
   padding: 10px 20px;
   color: #fff; /* Couleur du texte */
@@ -62,10 +70,11 @@ h1 {
   border-radius: 5px;
   margin-bottom: 10%;
   transition: background-color 0.3s;
+  cursor: pointer;
 }
 
 /* Lorsque le curseur survole le bouton, la couleur change */
-.play:hover {
+.boutonRegles2:hover {
   background-color: #2980b9; /* Nouvelle couleur de fond au survol */
 }
 
