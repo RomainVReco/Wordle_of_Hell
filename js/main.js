@@ -17,4 +17,4 @@ const nombreEssais = 6
 const nombreLettres = 5
 
 genererGrille(nombreEssais, nombreLettres)
-displayLetter()
+displayKeyboard()
