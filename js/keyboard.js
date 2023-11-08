@@ -54,8 +54,21 @@ allKeysKeyboard.forEach((element) => {
 function updateKeyboardColor(checkedMap){
     allKeysKeyboard.forEach((element) => {
         for (let value of checkedMap.values()){
+            console.Log
             if (element.innerHTML == value[1]){
-                switch (value[0])
+                switch (value[0]) {
+                    case 0:
+                        element.classList.add("mot-gris")
+                        break
+                    case 1:
+                        element.classList.add("mot-vert")
+                        break
+                    case 2: 
+                        element.classList.add("mot-jaune")
+                        break
+                    default:
+                        console.log("Pas de couleur assigné à la lettre du clavier")
+                }
             }
         }
 
@@ -67,11 +80,13 @@ console.log(userWord)
 
 // listener clavier
 document.getElementById('enter-key').addEventListener('click', function(){
-    if (mesControles.checkUserWordLength(userWord, numberLetters)&& (mesControles.checkWordExists(userWord, words))) {
+    if (mesControles.checkUserWordLength(userWord, numberLetters) && (mesControles.checkWordExists(userWord, words))) {
         var userTryChecked = mesControles.checkUserWord(userWord,motMystere)
         console.log(userTryChecked)
     }
-    updateKeyboardColor(userTryChecked)
+    if (userTryChecked.length == 5) {
+        updateKeyboardColor(userTryChecked)
+    }
 });
 
 document.addEventListener('keydown', function(event){

@@ -18,7 +18,7 @@ export function checkUserWordLength(userWord, numberLetters){
         return true
     }
     else {
-        errorUserInput("Le mot n'existe pas")
+        errorUserInput(`Le mot ne fait pas ${numberLetters} lettres.`)
         return false
     }
 }
@@ -36,15 +36,19 @@ export function concatUserInput(userWord) {
 // Vérifie si la saisie du joueur existe dans le référentiel
 export function checkWordExists(userWord, words){
     let concatUserWord = concatUserInput(userWord)
-    if ((words.includes(concatUserWord))) {
+    let numberLetters = userWord[0].length
+    console.log(concatUserWord.length)
+    if (words.includes(concatUserWord)) {
         return true
     }
     else{
-        errorUserInput('Le mot ne fait pas ${numberLetters} lettres.')
+        errorUserInput("Le mot n'existe pas")
         return false
     }
 }
-
+ /*
+ xcvxwc
+ */
 // Vérifie si la saisie du contient des lettres du mot mystère et renvoie une Map
 export function checkUserWord(userWord, motMystere){
     let concatUserWord = concatUserInput(userWord)
