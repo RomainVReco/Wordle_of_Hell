@@ -16,7 +16,6 @@ const nombreEssais = 6
 var userTries = 0
 const motMystere = "SUPER"
 
-
 function displayKeyboards(){
     let keyboard = document.getElementById('keyboard')
     for (let i = 0; i < letters.length; i++) {
@@ -51,7 +50,6 @@ allKeysKeyboard.forEach((element) => {
         userWord = mesControles.getLetterKey(element.innerHTML, userWord, numberLetters)
     })
 })
-
 
 function updateKeyboardColor(checkedMap){
     console.log("Je suis dans la fonction updateKeyboardColor")
@@ -120,7 +118,6 @@ document.getElementById('back-key').addEventListener('click', function(){
     else {
         return
     }
-
 });
 document.addEventListener('keydown', function(event){
     if (event.key === 'Backspace') {
