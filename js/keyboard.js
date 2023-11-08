@@ -12,7 +12,6 @@ const backspace = "◄"
 var userWord = []
 var numberLetters = 5
 const nombreEssais = 6
-const nombreLettres = 5
 const motMystere = "SUPER"
 
 function displayKeyboards(){
@@ -52,6 +51,7 @@ allKeysKeyboard.forEach((element) => {
 
 
 function updateKeyboardColor(checkedMap){
+    console.log("Je suis dans la fonction updateKeyboardColor")
     allKeysKeyboard.forEach((element) => {
         for (let value of checkedMap.values()){
             console.Log
@@ -84,8 +84,10 @@ document.getElementById('enter-key').addEventListener('click', function(){
         var userTryChecked = mesControles.checkUserWord(userWord,motMystere)
         console.log(userTryChecked)
     }
-    if (userTryChecked.length == 5) {
+    // console.log(userTryChecked.size)
+    if ((userTryChecked !=undefined) && (userTryChecked.size == numberLetters)) {
         updateKeyboardColor(userTryChecked)
+        userWord = []
     }
 });
 

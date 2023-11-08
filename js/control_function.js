@@ -29,7 +29,6 @@ export function concatUserInput(userWord) {
     for (let x of userWord) {
         concatUserWord += x
     }
-    console.log(concatUserWord)
     return concatUserWord
 }
 
@@ -37,7 +36,6 @@ export function concatUserInput(userWord) {
 export function checkWordExists(userWord, words){
     let concatUserWord = concatUserInput(userWord)
     let numberLetters = userWord[0].length
-    console.log(concatUserWord.length)
     if (words.includes(concatUserWord)) {
         return true
     }
@@ -74,9 +72,9 @@ export function checkUserWord(userWord, motMystere){
         else if (!(motMystere.includes(userWord[i]))) {
             userWordChecked.set(i, [0, userWord[i]])
         } 
-    } 
-    return userWordChecked;
+        } 
     }
+    return userWordChecked;
 }
 // export function checkVictory(userWordChecked, numberLetters){
 //     let correctLetters = 0
