@@ -1,13 +1,13 @@
-export function getLetterKey(letter, userWord
-    , numberLetters){
-    if (userWord
-        .length == numberLetters) {
+import * as maGrille from './grilleJeu.js'
+
+export function getLetterKey(letter, userWord, numberLetters) {
+    if (userWord.length == numberLetters) {
         return 
     }
-    userWord
-    .push(letter)
-    console.log(userWord
-        )
+    let tab_mot = maGrille.remplirMot(letter, userWord, numberLetters)
+    console.log(userWord)
+    return tab_mot
+
 }
 
 // Concatene la proposition du joueur pour retourner un String

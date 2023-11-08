@@ -1,6 +1,6 @@
 import {allWords} from './words.js'
-import './control_function.js'
-import './keyboard.js'
+import * as monKeyboard from './keyboard.js'
+import * as maGrille from './grilleJeu.js'
 
 
 const letters = [
@@ -9,12 +9,8 @@ const letters = [
     "W", "X", "C", "V", "B", "N"
 ]
 const words = allWords()
-const enter = "ENTER"
-const backspace = "◄"
-var userProposition = []
-var numberLetters = 5
 const nombreEssais = 6
 const nombreLettres = 5
 
-genererGrille(nombreEssais, nombreLettres)
-displayKeyboard() 
+maGrille.genererGrille(nombreEssais, nombreLettres)
+monKeyboard.displayKeyboards() 
