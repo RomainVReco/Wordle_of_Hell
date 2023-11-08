@@ -10,9 +10,12 @@ const words = allWords()
 const enter = "ENTER"
 const backspace = "◄"
 var userWord = []
+var userAttempts = []
 var numberLetters = 5
 const nombreEssais = 6
+var userTries = 0
 const motMystere = "SUPER"
+
 
 function displayKeyboards(){
     let keyboard = document.getElementById('keyboard')
@@ -82,11 +85,14 @@ console.log(userWord)
 document.getElementById('enter-key').addEventListener('click', function(){
     if (mesControles.checkUserWordLength(userWord, numberLetters) && (mesControles.checkWordExists(userWord, words))) {
         var userTryChecked = mesControles.checkUserWord(userWord,motMystere)
+        userTries += 1
         console.log(userTryChecked)
     }
     // console.log(userTryChecked.size)
     if ((userTryChecked !=undefined) && (userTryChecked.size == numberLetters)) {
         updateKeyboardColor(userTryChecked)
+        userAttempts.push(userWord)
+        mesControles.checkNumberOfTries(nombreEssais, userTries)
         userWord = []
     }
 });
@@ -97,7 +103,14 @@ document.addEventListener('keydown', function(event){
     }
 });
 document.getElementById('back-key').addEventListener('click', function(){
-        eraseLastEntry()
+    if (userWord.length != 0) {
+        userWord = mesControles.eraseLastEntry(userWord)
+        console.log(userWord)
+    }
+    else {
+        return
+    }
+
 });
 document.addEventListener('keydown', function(event){
     if (event.key === 'Backspace') {
