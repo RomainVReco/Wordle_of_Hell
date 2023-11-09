@@ -23,15 +23,16 @@ switch (numberOfTries){
 let elapsedTime = 5
 let motMystere = "Jambon"
 let keyboardContainer = document.getElementById('keyboard-container')
-keyboardContainer.style.display = 'inline-bloc'
+    
 console.log('keyboardContainer : '+ keyboardContainer.innerHTML)
 let endGameContainer = document.createElement('div')
+endGameContainer.classList.add('contenu-modal')
 let firstBloc = document.createElement('p')
 firstBloc.textContent= `Bravo, vous avez trouvé le mot mystère : ${motMystere}`
 console.log('firstBloc : '+ firstBloc.innerHTML)
 
 let secondBloc = document.createElement('p')
-secondBloc.append(`Vous l'avez trouvé en ${numberOfTries} <span>tentatives</span> ! ${comment}`)
+secondBloc.append(`Vous l'avez trouvé en ${numberOfTries} tentatives ! ${comment}`)
 console.log('secondBloc : '+ secondBloc.innerHTML)
 
 let thirdBloc = document.createElement('p')
@@ -39,13 +40,19 @@ thirdBloc.append(`Temps écoulé : ${elapsedTime}.`)
 console.log('thirdBloc : '+ thirdBloc.innerHTML)
 
 let bloc = [firstBloc, secondBloc, thirdBloc]
-// bloc.forEach((element) => function(){
-//     endGameContainer.appendChild(element)
-// })
 
 for (let i=0;i<3;i++){
     endGameContainer.appendChild(bloc[i])
 }
+
+let regle = document.querySelector(".timer")
+console.log(regle)
+let nombreEssais = document.querySelector('.nombreDEssais')
+let timer = document.querySelector('.reglesDuJeu')
+
+regle.remove()
+nombreEssais.remove()
+timer.remove()
 
 console.log('endGameContainer : '+ endGameContainer.innerHTML)
 keyboardContainer.innerHTML=''
