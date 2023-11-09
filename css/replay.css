@@ -1,0 +1,19 @@
+.bouton {
+    padding: 10px;
+    margin: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.replay {
+    background-color: #39db34;
+}
+
+.retour {
+    background-color: #ce1500;
+}
