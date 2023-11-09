@@ -42,22 +42,20 @@ export function victory(motMystere, userTries){
 let keyboardContainer = document.getElementById('keyboard-container')
 let endGameContainer = document.createElement('div')
 endGameContainer.classList.add('contenu-modal-victory')
-let firstBloc = document.createElement('p')
-firstBloc.textContent= `Bravo, vous avez trouvé le mot mystère : ${motMystere}`
 
-let secondBloc = document.createElement('p')
-secondBloc.append(`Vous l'avez trouvé en ${numberOfTries} ${tentative} ! ${comment}`)
+let blocText = [`Bravo, vous avez trouvé le mot mystère : ${motMystere}`, `Vous l'avez trouvé en ${numberOfTries} ${tentative} ! ${comment}`,
+`Temps écoulé : ${elapsedTime[0]} ${infoMinute} et ${elapsedTime[1]} ${infoSeconde}.`, `Votre score est ${score} points`]
+let blocList = []
 
-let thirdBloc = document.createElement('p')
-thirdBloc.append(`Temps écoulé : ${elapsedTime[0]} ${infoMinute} et ${elapsedTime[1]} ${infoSeconde}.`)
+for (let i=0; i<blocText.length;i++){
+    let bloc = document.createElement('p')
+    bloc.append(blocText[i])
+    bloc.classList.add('victory-p')
+    blocList.push(bloc)
+}
 
-let fourthBloc = document.createElement('p')
-fourthBloc.append(`Votre score est ${score} points`)
-
-let bloc = [firstBloc, secondBloc, thirdBloc, fourthBloc]
-
-for (let i=0;i<bloc.length;i++){
-    endGameContainer.appendChild(bloc[i])
+for (let i=0;i<blocList.length;i++){
+    endGameContainer.appendChild(blocList[i])
 }
 
 let regle = document.querySelector(".reglesDuJeu")
