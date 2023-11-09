@@ -79,8 +79,12 @@ i:hover {
     color: white;
     background-color: rgba(0,0,0,0.7);
     margin: 5% auto;
-    padding: 20px 20px 20px 45px;
+    padding: 20px 20px 12px 45px;
     border: 1px solid #119F00;
     width: 70vw;
     font-size: 1.5em;
+}
+
+.victory-p {
+    margin-bottom: 0.5em;
 }
