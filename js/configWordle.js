@@ -2,11 +2,12 @@ import {allWords} from './words.js'
 
 const words = allWords()
 const nombreEssais = 6
-const time = 100
+const time = 500
 const numberOfLines = nombreEssais
 const numberOfLetters = 5;
 var numberOfTries = 0
 var elapsedTime = 0
+var finJeu = false
 
 let shuffleInt = Math.floor(Math.random() * words.length);
 const motMystere = "JUSEE"
@@ -43,4 +44,12 @@ export function getMotMystere() {
 
 export function getNumberOfTries(){
     return numberOfTries
+}
+
+export function getFinjeu() {
+    return finJeu
+}
+
+export function setFinJeu(boolean){
+    finJeu = boolean
 }
