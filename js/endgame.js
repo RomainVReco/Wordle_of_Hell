@@ -5,6 +5,8 @@ export function victory(motMystere, userTries){
    let elapsedTime = getElapsedTime()
    let infoMinute = ''
    let infoSeconde = ''
+   let tempsRestant = ((parseInt(elapsedTime[0]*60))+(parseInt(elapsedTime[1])))
+   let score = calculerScore(tempsRestant, numberOfTries)
 
    if (elapsedTime[0] >= 1){
         infoMinute = "minute"
@@ -47,11 +49,14 @@ let secondBloc = document.createElement('p')
 secondBloc.append(`Vous l'avez trouvé en ${numberOfTries} ${tentative} ! ${comment}`)
 
 let thirdBloc = document.createElement('p')
-thirdBloc.append(`Temps écoulé : ${elapsedTime[0]} ${infoMinute} et ${elapsedTime[1]} secondes.`)
+thirdBloc.append(`Temps écoulé : ${elapsedTime[0]} ${infoMinute} et ${elapsedTime[1]} ${infoSeconde}.`)
 
-let bloc = [firstBloc, secondBloc, thirdBloc]
+let fourthBloc = document.createElement('p')
+fourthBloc.append(`Votre score est ${score} points`)
 
-for (let i=0;i<3;i++){
+let bloc = [firstBloc, secondBloc, thirdBloc, fourthBloc]
+
+for (let i=0;i<bloc.length;i++){
     endGameContainer.appendChild(bloc[i])
 }
 
@@ -67,3 +72,8 @@ console.log('endGameContainer : '+ endGameContainer.innerHTML)
 keyboardContainer.innerHTML=''
 keyboardContainer.append(endGameContainer)
 }
+
+function calculerScore(tempsRestant, nombreEssais){
+    let score = (100*tempsRestant)/nombreEssais;
+    return score;
+};

@@ -100,6 +100,7 @@ export function checkVictory(userWord, motMystere, userTries) {
     console.log("concatUserWord === motMystere : " + concatUserWord === motMystere)
     if (concatUserWord === motMystere) {
         victory(motMystere, userTries)
+        return true
     }
     else return
 }

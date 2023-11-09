@@ -15,6 +15,7 @@ var numberLetters = 5
 const nombreEssais = 6
 var userTries = 0
 const motMystere = configWordle.getMotMystere()
+var finJeu = configWordle.getFinjeu()
 
 function displayKeyboards(){
     let keyboard = document.getElementById('keyboard')
@@ -90,7 +91,8 @@ document.getElementById('enter-key').addEventListener('click', function(){
         userTries += 1
         console.log("Essai : " + userTries)
         document.getElementById('nombresEssais').textContent = userTries;
-        mesControles.checkVictory(userWord, motMystere, userTries)
+        finJeu = mesControles.checkVictory(userWord, motMystere, userTries)
+        configWordle.setFinJeu(finJeu)
         mesControles.checkNumberOfTries(nombreEssais, userTries)
         userWord = []
     }
