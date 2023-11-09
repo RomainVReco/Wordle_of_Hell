@@ -1,5 +1,5 @@
-
-let tempsRestant = 300;
+import {getTime} from './configWordle.js'
+let tempsRestant = getTime();
 const elementChrono = document.getElementById('chrono');
 
 // Fonction pour mettre à jour et afficher le chrono
@@ -15,17 +15,15 @@ function actualiserChrono() {
     elementChrono.innerHTML = `<i class="fa-solid fa-clock"></i><br><br> ${minutes}:${secondes}`;
 
     // Décrémente le temps
-    tempsRestant--;
+    if (tempsRestant>0){
+        tempsRestant--;
+    }
+
 
     // Si le temps est écoulé
-    if (tempsRestant < 0) {
-        finJeu = true;
-        gameOver = true;
-        // alert('Perdu ! Le mot mystère était : ' + motMystere); pour contrôle
-        clearInterval(chrono);
-        elementChrono.innerHTML = "Temps écoulé ! Game Over";
-        // Autres actions à effectuer une fois le temps écoulé
-        // Par exemple : gameOver = true; ou exécuter une fonction gameOver()
+    if (tempsRestant == 0) {
+        elementChrono.innerHTML = `<i class="fa-solid fa-clock"></i><br><br> Temps écoulé !`; 
+        lostGame(tempsRestant)
     }
 }
 // Appel de la fonction toutes les 1 seconde pour mettre à jour le chrono

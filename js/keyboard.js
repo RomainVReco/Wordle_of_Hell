@@ -84,11 +84,13 @@ console.log(userWord)
 document.getElementById('enter-key').addEventListener('click', function(){
     if (mesControles.checkUserWordLength(userWord, numberLetters) && (mesControles.checkWordExists(userWord, words))) {
         var userTryChecked = mesControles.checkUserWord(userWord,motMystere)
-        userTries += 1
         console.log(userTryChecked)
     }
     if ((userTryChecked !=undefined) && (userTryChecked.size == numberLetters)) {
         updateKeyboardColor(userTryChecked)
+        userTries += 1
+        console.log("Essai : " + userTries)
+        document.getElementById('nombresEssais').textContent = userTries;
         userAttempts.push(userWord)
         mesControles.checkNumberOfTries(nombreEssais, userTries)
         userWord = []
@@ -100,12 +102,13 @@ document.addEventListener('keydown', function(event){
     if (event.key === 'Enter') {
         if (mesControles.checkUserWordLength(userWord, numberLetters) && (mesControles.checkWordExists(userWord, words))) {
             var userTryChecked = mesControles.checkUserWord(userWord,motMystere)
-            userTries += 1
             console.log(userTryChecked)
         }
         if ((userTryChecked !=undefined) && (userTryChecked.size == numberLetters)) {
             updateKeyboardColor(userTryChecked)
             userAttempts.push(userWord)
+            userTries += 1
+            document.getElementById('nombresEssais').textContent = userTries;
             mesControles.checkNumberOfTries(nombreEssais, userTries)
             userWord = []
         }
