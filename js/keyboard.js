@@ -108,7 +108,7 @@ document.addEventListener('keydown', function(event){
             mesControles.checkNumberOfTries(nombreEssais, userTries)
             userWord = []
         }
-    }
+    }   
 });
 document.getElementById('back-key').addEventListener('click', function(){
     if (userWord.length != 0) {
