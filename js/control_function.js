@@ -1,4 +1,5 @@
 import * as maGrille from './grilleJeu.js'
+import {victory} from './endgame.js'
 
 export function getLetterKey(letter, userWord, numberLetters) {
     if (userWord.length == numberLetters) {
@@ -52,10 +53,6 @@ export function checkUserWord(userWord, motMystere){
     let breakMotMystere = ''
     const userWordChecked = new Map()
 
-    if (concatUserWord === motMystere) {
-        victory(motMystere)
-    }
-    else {
     for (let j=0; j<motMystere.length; j++){
         breakMotMystere += motMystere[j]
     }
@@ -72,10 +69,9 @@ export function checkUserWord(userWord, motMystere){
             userWordChecked.set(i, [0, userWord[i]])
         } 
         } 
+        maGrille.updateGridColor(userWordChecked)
+        return userWordChecked;
     }
-    maGrille.updateGridColor(userWordChecked)
-    return userWordChecked;
-}
 
 export function checkNumberOfTries(numberOfTry, userTries){
     if (userTries == numberOfTry ){
@@ -95,6 +91,17 @@ export function eraseLastEntry(userWord){
 
 export function errorUserInput(string){
     alert(string)
+}
+
+export function checkVictory(userWord, motMystere, userTries) {
+    let concatUserWord = concatUserInput(userWord)
+    console.log("concatUserWord : "+concatUserWord)
+    console.log("motMystere :"+motMystere)
+    console.log("concatUserWord === motMystere : " + concatUserWord === motMystere)
+    if (concatUserWord === motMystere) {
+        victory(motMystere, userTries)
+    }
+    else return
 }
 
 
