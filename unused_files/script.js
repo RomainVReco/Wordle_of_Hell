@@ -7,8 +7,8 @@ let numberOfTry = 0;
 
 const elementsTouches = document.querySelectorAll("button");
 let ligne = 1;
-let nbCase = 1;
-let motMystere = "super";
+let lettre = 1;
+const motMystere = "super";
 const elementsMot = document.querySelectorAll(".ligneMot")
 let tempsRestant = 300;
 const elementChrono = document.getElementById('chrono');
@@ -72,12 +72,13 @@ elementsTouches.forEach((element) => {
 });
 
 
-function remplirMot (clef,userWord,numberLetters) {
+
+function remplirMot (clef) {
     // console.log(elementsMot); pour contrôle console
-    if (nbCase < 6) {
-        elementsMot[ligne - 1].querySelectorAll(".mot")[nbCase - 1].innerText = clef;
-        nbCase += 1;
-    };
+    if (lettre < 6) {
+        elementsMot[ligne - 1].querySelectorAll(".mot")[lettre - 1].innerText = clef;
+        lettre += 1;
+    }
 }
 
 function verifierMot () {
@@ -104,17 +105,18 @@ function verifierMot () {
     } else if (ligne === 6) {
         finJeu = true;
         // alert('Perdu ! Le mot mystère était : ' + motMystere); pour contrôle
-        // Faire la bascule sur l'écran game over
+        window.location.href = "gameover.html";
+
     }
 }
 
 function confirmerSaisieMot () {
-    if(nbCase < 6) {
+    if(lettre < 6) {
         alert("Pas assez de lettres");
     } else {
         verifierMot ();
         ligne += 1;
-        nbCase = 1;
+        lettre = 1;
         numberOfTry += 1;
 
         // Mettre à jour l'affichage :
@@ -131,7 +133,7 @@ function effacerLettre () {
         const element = elementsLettre[index];
         if (element.innerText !== '') {
             element.innerText = '';
-            nbCase -= 1;
+            lettre -= 1;
             break;
         }
     }
@@ -176,9 +178,8 @@ function actualiserChrono() {
         clearInterval(chrono);
         elementChrono.innerHTML = "Temps écoulé ! Game Over";
         // Autres actions à effectuer une fois le temps écoulé
-        // Par exemple : gameOver = true; ou exécuter une fonction gameOver()
+        window.location.href = "gameover.html";
     }
 }
 // Appel de la fonction toutes les 1 seconde pour mettre à jour le chrono
 const chrono = setInterval(actualiserChrono, 1000);
-
