@@ -4,10 +4,11 @@ import * as configWordle from './configWordle.js'
 // Pour cleaner le HTML :
 const nombresEssais = configWordle.getNomnbreEssais();
 const nombresLettres = configWordle.getNumberOfLetters();
+const motMystere = configWordle.getMotMystere();
 
 let numLigne = 1;
 let numCase = 1;
-const motMystere = "super";
+
 
 
 document.getElementById('nombreEssaisAutorises').textContent = nombresEssais;
@@ -37,7 +38,6 @@ genererGrille(nombresEssais, nombresLettres);
 const elementsMot = document.querySelectorAll(".ligneMot");
 
 export function remplirMot (clef) {
-    // console.log(elementsMot); pour contrôle console
     if (numCase <= nombresLettres) {
         elementsMot[numLigne - 1].querySelectorAll(".mot")[numCase - 1].innerText = clef;
         numCase += 1;
@@ -58,30 +58,30 @@ export function effacerLettre () {
     }
 }
 
-function verifierMot () {
+export function updateGridColor (userWord) {
     const elementsLettre = elementsMot[numLigne - 1].querySelectorAll(".mot")
-    let compteurLettresCorrectes = 0;
+    // console.log(elementsLettre[0])
 
-    elementsLettre.forEach((element, index) => {
-        const indexDesLettresDuMotMystere = motMystere.toLowerCase().indexOf(element.innerText.toLowerCase());
-        // console.log(indexDesLettresDuMotMystere); pour contrôle console
-        if (indexDesLettresDuMotMystere === index) {
-            compteurLettresCorrectes += 1;
-            element.classList.add("mot-vert");
-        } else if (indexDesLettresDuMotMystere > 0) {
-            element.classList.add("mot-jaune");
-        } else {
-            element.classList.add("mot-gris");
+    for (let i=0; i<motMystere.length; i++){
+        console.log(elementsLettre[i].innerText, motMystere[i])
+        console.log(elementsLettre[i].innerText==motMystere[i])
+
+        if (elementsLettre[i].innerText==motMystere[i]) {
+            elementsLettre[i].classList.add("mot-vert");
         }
-    }); 
-    if (compteurLettresCorrectes === 5) {
-        finJeu = true;
-        win = true;
-        // alert('Victoire'); pour contrôle
-        // Faire la bascule sur l'écran de victoire
-    } else if (numLigne === 6) {
-        finJeu = true;
-        // alert('Perdu ! Le mot mystère était : ' + motMystere); pour contrôle
-        // Faire la bascule sur l'écran game over
-    }
+        
+        else if (motMystere.includes(elementsLettre[i].innerText)){
+            console.log(motMystere.includes(elementsLettre[i].innerText))
+            elementsLettre[i].classList.add("mot-jaune");
+        }
+        else if (!(motMystere.includes(elementsLettre[i].innerText))) {
+            elementsLettre[i].classList.add("mot-gris");
+        } 
+    } 
+    updateLineCase()
+}
+
+function updateLineCase(){
+    numLigne += 1
+    numCase = 1
 }

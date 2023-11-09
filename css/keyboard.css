@@ -16,7 +16,9 @@
     padding: 5px;
 }
 
-.keyboard .letter {
+
+
+.letter {
     background-color: black;
     color: white;
     outline: none;
@@ -55,4 +57,16 @@
     grid-column: 9/11;
     grid-row: 3/4 ;
 
+}
+
+.mot-vert{
+    background-color: rgb(19, 192, 0);
+}
+
+.mot-jaune{
+    background-color: #ec8e00 ;
+}
+
+.mot-gris{
+    background-color: #8e8e8e ;
 }
