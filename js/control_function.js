@@ -54,7 +54,7 @@ export function checkUserWord(userWord, motMystere){
     const userWordChecked = new Map()
 
     if (concatUserWord === motMystere) {
-        victory()
+        victory(motMystere)
     }
     else {
     for (let j=0; j<motMystere.length; j++){
