@@ -60,11 +60,27 @@ function updateKeyboardColor(checkedMap){
             if (element.innerHTML == value[1]){
                 switch (value[0]) {
                     case 0:
-                        element.classList.add("mot-gris")
-                        break
+                        if (element.classList.contains("mot-gris")){
+                            break
+                        } else {
+                            element.classList.add("mot-gris")
+                            break
+                        }
                     case 1:
-                        element.classList.add("mot-vert")
-                        break
+                        if (element.classList.contains("mot-jaune")){
+                            element.classList.remove("mot-jaune")
+                            element.classList.add("mot-vert")
+                            break
+                        } 
+                        else if (element.classList.contains("mot-gris")) {
+                            element.classList.remove("mot-gris")
+                            element.classList.add("mot-vert")
+                            break
+                        }
+                        else {
+                            element.classList.add("mot-vert")
+                            break
+                        }
                     case 2: 
                         element.classList.add("mot-jaune")
                         break
