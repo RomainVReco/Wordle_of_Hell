@@ -1,0 +1,73 @@
+.boutonStatJeu{
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 3px;
+    width: 30em;
+    text-align: center;
+    padding: 1em;
+    margin: 2em;
+}
+
+i {
+    color: white;
+    -webkit-text-stroke: 3px #119F00; 
+    font-weight: 800;
+    font-size: 3em;
+}
+
+#ouvrirStat {
+    cursor: pointer;
+}
+.modal3 {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7); 
+}
+
+
+.contenu-modal3 {
+    color: white;
+    background-color: rgba(0,0,0,0.7); 
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #119F00;
+    width: 90%;
+}
+
+.contenu-modal3 h2{
+    font-size: 3em;
+    padding: 1em;
+}
+
+.fermer3 {
+    color: rgb(112, 0, 0);
+    float: right;
+    padding: 0.1em;
+    font-size: 40px;
+    font-weight: bold;
+    border:1px solid rgb(112, 0, 0);
+}
+
+.fermer3:hover,
+.fermer3:focus {
+    color: rgb(255, 0, 0);
+    border:1px solid rgb(255, 0, 0);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* Lorsque le curseur survole le bouton, la couleur change */
+.boutonStatJeu:hover {
+    background-color: #2980b9; /* Nouvelle couleur de fond au survol */
+}
+

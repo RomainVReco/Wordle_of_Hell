@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./gameover.css">
+    <link rel="stylesheet" href="./modalstat.css">
+    <link rel="stylesheet" href="./modalmodejeu.css">
+    
+    <link 
+        rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" 
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" 
+        crossorigin="anonymous" 
+        referrerpolicy="no-referrer" 
+    />
+    <title>Wordle - Game over</title>
+</head>
+<body>
+    <div id="spritesContainer"></div>
+    <div class="header">
+        <h1>Wordle</h1>
+    </div>
+    <main>
+        <div class="boutonStatJeu">
+            <div class="statJeu" id="ouvrirStat">
+                <i class="fa-solid fa-square-plus"> RESULTATS</i>
+            </div>
+            <div id="maModal3" class="modal3">
+                <div class="contenu-modal3">
+                    <span class="fermer3">&times;</span>
+                    <h2>GAME OVER</h2>  
+                    <p>Le mot mystère était : <span id="motMystereDisplay"></span></p>
+                </div>
+            </div>
+        </div>
+        <div class="boutonRegles2">
+            <div class="reglesDuJeu" id="ouvrirMode">
+                <i class="fa-solid fa-circle-play"> PLAY</i>
+            </div>
+            <div id="maModal2" class="modal2">
+                <div class="contenu-modal2">
+                    <span class="fermer2">&times;</span>
+                    <h2>Choix du mode de jeu</h2>
+                    <a href="./index.html">Mode simple</a>
+                    <a href="#">Mode 2 joueurs</a>
+                    <a href="#">Mode double Wordle</a>       
+                </div>
+            </div>
+        </div>
+        <footer>
+            <p>&copy; 2023 Romain et Robin. Tous droits réservés.</p>
+        </footer>
+    </main>
+    <script src="./gameover.js"></script>
+    <script src="./rules.js"></script>
+    <script src="./modalmodejeu.js"></script>
+    <script src="./modalstat.js"></script>
+    
+
+
+</body>
+</html>

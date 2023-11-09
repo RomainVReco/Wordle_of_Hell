@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.sprite {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-size: contain;
+    transition: opacity 0.5s ease; /* Ajout de la transition d'opacité */
+    opacity: 1; /* Initialise l'opacité à 0 pour le démarrage */
+}
+
+body {
+    width: 100%;
+    background:linear-gradient(rgb(0, 0, 83),rgb(0, 0, 27));
+    height: 100vh;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+  
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+  
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+  
+h1 {
+    z-index: 1;
+    text-align: center;
+    color: white;
+    -webkit-text-stroke: 4px #119F00; 
+    width: 4em;
+    padding: 0.1em;
+    border-radius: 50%;
+    background-color: #297fb9;
+    font-size: 8em !important;
+    margin:0 !important;
+    border-top: 10px #002e4d double;
+    border-right: 10px #002e4d double;
+    border-bottom: 10px #002e4d double;
+    box-shadow: 6px 6px 0px #119F00;
+}
+  
+
+  
+  /* Styles de base pour la div bouton */
+.boutonRegles2 {
+    z-index: 1;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff; /* Couleur du texte */
+    text-decoration: none;
+    padding: 1em;
+    margin: 2em;
+    border-radius: 5px;
+    margin-bottom: 10%;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+  
+  /* Lorsque le curseur survole le bouton, la couleur change */
+.boutonRegles2:hover {
+    background-color: #2980b9; /* Nouvelle couleur de fond au survol */
+}
+  
+.boutonRegles:hover {
+    background-color: #2980b9; /* Nouvelle couleur de fond au survol */
+}
+footer {
+    z-index: 1;
+    color: white;
+    margin: 0.5em;
+}
