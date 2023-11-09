@@ -33,16 +33,13 @@
 }
 
 .mot-vert{
-    background-color: #18ec00 !important;
-    color: white !important;
+    background-color: rgb(19, 192, 0);
 }
 
 .mot-jaune{
-    background-color: #e0ec00 !important;
-    color: white !important; 
+    background-color: #ec8e00 ;
 }
 
 .mot-gris{
-    background-color: #8e8e8e !important;
-    color: white !important;
+    background-color: #8e8e8e ;
 }
