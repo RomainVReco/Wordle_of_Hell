@@ -102,7 +102,7 @@ export function checkVictory(userWord, motMystere, userTries) {
         victory(motMystere, userTries)
         return true
     }
-    else return
+    else return false
 }
 
 
