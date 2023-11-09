@@ -1,5 +1,21 @@
-export function victory(motMystere){
-   let numberOfTries = getNumberOfTries()
+import {getElapsedTime} from './configWordle.js'
+
+export function victory(motMystere, userTries){
+   let numberOfTries = userTries
+   let elapsedTime = getElapsedTime()
+   let infoMinute = ''
+   let infoSeconde = ''
+
+   if (elapsedTime[0] >= 1){
+        infoMinute = "minute"
+   }
+   else infoMinute = "minutes"
+
+   if (elapsedTime[1] >= 1){
+    infoSeconde = "seconde"
+    }
+    else infoSeconde = "secondes"
+
    let comment =''
    switch (numberOfTries){
     case 1:
@@ -15,24 +31,23 @@ export function victory(motMystere){
         comment = "Chapeau !"
    }
 
-   let elapsedTime = getElapsedTime()
-   let motMystere = motMystere
+   let tentative = ''
+   if (numberOfTries==1) {
+    tentative = "tentative"
+   }
+   else tentative = "tentatives"
+
 let keyboardContainer = document.getElementById('keyboard-container')
-    
-console.log('keyboardContainer : '+ keyboardContainer.innerHTML)
 let endGameContainer = document.createElement('div')
-endGameContainer.classList.add('contenu-modal')
+endGameContainer.classList.add('contenu-modal-victory')
 let firstBloc = document.createElement('p')
 firstBloc.textContent= `Bravo, vous avez trouvé le mot mystère : ${motMystere}`
-console.log('firstBloc : '+ firstBloc.innerHTML)
 
 let secondBloc = document.createElement('p')
-secondBloc.append(`Vous l'avez trouvé en ${numberOfTries} tentatives ! ${comment}`)
-console.log('secondBloc : '+ secondBloc.innerHTML)
+secondBloc.append(`Vous l'avez trouvé en ${numberOfTries} ${tentative} ! ${comment}`)
 
 let thirdBloc = document.createElement('p')
-thirdBloc.append(`Temps écoulé : ${elapsedTime}.`)
-console.log('thirdBloc : '+ thirdBloc.innerHTML)
+thirdBloc.append(`Temps écoulé : ${elapsedTime[0]} ${infoMinute} et ${elapsedTime[1]} secondes.`)
 
 let bloc = [firstBloc, secondBloc, thirdBloc]
 
@@ -40,10 +55,9 @@ for (let i=0;i<3;i++){
     endGameContainer.appendChild(bloc[i])
 }
 
-let regle = document.querySelector(".timer")
-console.log(regle)
+let regle = document.querySelector(".reglesDuJeu")
 let nombreEssais = document.querySelector('.nombreDEssais')
-let timer = document.querySelector('.reglesDuJeu')
+let timer = document.querySelector('.timer')
 
 regle.remove()
 nombreEssais.remove()

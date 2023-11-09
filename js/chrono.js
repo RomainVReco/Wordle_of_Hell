@@ -1,4 +1,5 @@
-import {getTime} from './configWordle.js'
+import {getTime, setElapsedTime} from './configWordle.js'
+
 let tempsRestant = getTime();
 const elementChrono = document.getElementById('chrono');
 
@@ -17,6 +18,8 @@ function actualiserChrono() {
     // Décrémente le temps
     if (tempsRestant>0){
         tempsRestant--;
+        console.log(affichageTempsJeu(tempsRestant))
+        setElapsedTime(affichageTempsJeu(tempsRestant))
     }
 
 
@@ -28,3 +31,11 @@ function actualiserChrono() {
 }
 // Appel de la fonction toutes les 1 seconde pour mettre à jour le chrono
 const chrono = setInterval(actualiserChrono, 1000);
+
+function affichageTempsJeu (tempsRestant){
+    const minutes = Math.floor(tempsRestant / 60);
+    let secondes = tempsRestant % 60;
+    const resultat = [minutes,secondes]
+    return resultat
+}
+// console.log(affichageTempsJeu(milliseconds))

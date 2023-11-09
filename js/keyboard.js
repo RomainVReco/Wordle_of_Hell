@@ -11,7 +11,6 @@ const words = allWords()
 const enter = "ENTER"
 const backspace = "◄"
 var userWord = []
-var userAttempts = []
 var numberLetters = 5
 const nombreEssais = 6
 var userTries = 0
@@ -91,7 +90,7 @@ document.getElementById('enter-key').addEventListener('click', function(){
         userTries += 1
         console.log("Essai : " + userTries)
         document.getElementById('nombresEssais').textContent = userTries;
-        userAttempts.push(userWord)
+        mesControles.checkVictory(userWord, motMystere, userTries)
         mesControles.checkNumberOfTries(nombreEssais, userTries)
         userWord = []
     }
@@ -106,9 +105,9 @@ document.addEventListener('keydown', function(event){
         }
         if ((userTryChecked !=undefined) && (userTryChecked.size == numberLetters)) {
             updateKeyboardColor(userTryChecked)
-            userAttempts.push(userWord)
             userTries += 1
             document.getElementById('nombresEssais').textContent = userTries;
+            mesControles.checkVictory(userWord, motMystere, userTries)
             mesControles.checkNumberOfTries(nombreEssais, userTries)
             userWord = []
         }
