@@ -5,6 +5,7 @@
 }
 
 .keyboard {
+    background: lightblue;
     display: grid;
     grid-template-columns: repeat(10, auto);
     grid-template-rows: repeat(3, auto);
@@ -16,25 +17,20 @@
     padding: 5px;
 }
 
-.keyboard .letter {
-    background-color: black;
-    color: white;
-    outline: none;
-    border: 1px solid #119F00;
-    cursor: pointer;
-    margin-right: 0.4em;
-    margin-bottom: 0.4em;
-    border-radius: 3px;
+.letter {
+    background-color: brown;
+    border: 1 solid black;
+    border-radius: 5px;
     height:2.5rem;
     width: 2.5rem;
+    text-align: center;
+    line-height: 28px;
     font-size: 1rem;
 }
 
 .enter {
-    background:black;
-    color: white;
+    background:greenyellow ;
     border-radius: 5px;
-    border: 1px solid #119F00;
     height: 2.5rem;
     width: 5.625rem;
     text-align: center;
@@ -44,10 +40,8 @@
 }
 
 .backspace {
-    background:black;
-    color: white;
+    background:orangered ;
     border-radius: 5px;
-    border: 1px solid #119F00;
     height: 2.5rem;
     width: 5.625rem;
     text-align: center;
