@@ -2,7 +2,7 @@ import {allWords} from './words.js'
 
 const words = allWords()
 const nombreEssais = 6
-const time = 300
+const time = 100
 const numberOfLines = nombreEssais
 const numberOfLetters = 5;
 
