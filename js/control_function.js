@@ -1,4 +1,4 @@
-// import * as maGrille from './grilleJeu.js'
+import * as maGrille from './grilleJeu.js'
 
 export function getLetterKey(letter, userWord, numberLetters) {
     if (userWord.length == numberLetters) {
@@ -8,6 +8,7 @@ export function getLetterKey(letter, userWord, numberLetters) {
     // let tab_mot = maGrille.remplirMot(letter, userWord, numberLetters)
     else {
         userWord.push(letter)
+        maGrille.remplirMot(letter)
     }
     console.log(userWord, userWord.length)
     return userWord
@@ -87,35 +88,11 @@ export function checkNumberOfTries(numberOfTry, userTries){
 export function eraseLastEntry(userWord){
     if (userWord.length != 0)  {
         userWord.pop()
+        maGrille.effacerLettre()
         return userWord
     }
     else return
 }
-// export function checkVictory(userWordChecked, numberLetters){
-//     let correctLetters = 0
-//     for (const x of userWordChecked.values()){
-//         if (x[0] == 1){
-//             correctLetters += 1
-//         }
-//     }
-//     if (correctLetters == numberLetters.length){
-//         return true
-//     }
-//     else false
-// }
-
-// export function checkVictory(userWordChecked, numberLetters){
-//     let correctLetters = 0
-//     for (const x of userWordChecked.values()){
-//         if (x[0] == 1){
-//             correctLetters += 1
-//         }
-//     }
-//     if (correctLetters == numberLetters.length){
-//         return true
-//     }
-//     else false
-// }
 
 export function errorUserInput(string){
     alert(string)
