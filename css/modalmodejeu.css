@@ -76,3 +76,82 @@ i {
     font-size: 3em;
 }
 
+.boutonRegles2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 3px;
+    width: 15em;
+    text-align: center;
+    padding: 1em;
+    margin: 2em;
+}
+
+#ouvrirRegles2 {
+    cursor: pointer;
+}
+.modal2 {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7); 
+}
+
+
+.contenu-modal2 {
+    color: white;
+    background-color: rgba(0,0,0,0.7); 
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #119F00;
+    width: 90%;
+}
+
+.contenu-modal2 h2{
+    font-size: 3em;
+    padding: 1em;
+}
+
+.contenu-modal2 a{
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    font-size: 1.5em;
+    padding: 0.8em;
+}
+
+.contenu-modal2 a:hover{
+    color: #119F00;
+    font-size: 1.7em;
+} 
+.fermer2 {
+    color: rgb(112, 0, 0);
+    float: right;
+    padding: 0.1em;
+    font-size: 40px;
+    font-weight: bold;
+    border:1px solid rgb(112, 0, 0);
+}
+
+.fermer2:hover,
+.fermer2:focus {
+    color: rgb(255, 0, 0);
+    border:1px solid rgb(255, 0, 0);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+i {
+    color: #119F00;
+    -webkit-text-stroke: 2px black; 
+    font-weight: 800;
+    font-size: 3em;
+}
+
+

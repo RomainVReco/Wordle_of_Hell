@@ -75,4 +75,6 @@ i {
 
 i:hover {
     font-size: 3.7em;
+    font-size: 4em;
+    box-shadow: 6px 6px 6px 6px rgb(73, 0, 0);
 }
