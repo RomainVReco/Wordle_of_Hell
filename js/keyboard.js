@@ -1,5 +1,6 @@
 import {allWords} from './words.js'
 import * as mesControles from './control_function.js'
+import * as configWordle from './configWordle.js'
 
 const letters = [
     "A", "Z", "E", "R", "T", "Y", "U", "I", "O", "P",
@@ -14,7 +15,7 @@ var userAttempts = []
 var numberLetters = 5
 const nombreEssais = 6
 var userTries = 0
-const motMystere = "SUPER"
+const motMystere = configWordle.getMotMystere()
 
 function displayKeyboards(){
     let keyboard = document.getElementById('keyboard')

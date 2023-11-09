@@ -4,8 +4,6 @@ export function getLetterKey(letter, userWord, numberLetters) {
     if (userWord.length == numberLetters) {
         return userWord
     }
-    // A décommenter quand tout sera branché
-    // let tab_mot = maGrille.remplirMot(letter, userWord, numberLetters)
     else {
         userWord.push(letter)
         maGrille.remplirMot(letter)
@@ -75,6 +73,7 @@ export function checkUserWord(userWord, motMystere){
         } 
         } 
     }
+    maGrille.updateGridColor(userWordChecked)
     return userWordChecked;
 }
 

@@ -7,7 +7,8 @@ const numberOfLines = nombreEssais
 const numberOfLetters = 5;
 
 let shuffleInt = Math.floor(Math.random() * words.length);
-const motMystere = words[shuffleInt]
+const motMystere = "JUSEE"
+// words[shuffleInt]
 console.log("Mot mystère : "+motMystere)
 
 export function getNomnbreEssais(){
