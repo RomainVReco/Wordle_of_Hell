@@ -38,21 +38,16 @@ export function victory(motMystere, userTries){
    else tentative = "tentatives"
 
 let keyboardContainer = document.getElementById('keyboard-container')
-    
-console.log('keyboardContainer : '+ keyboardContainer.innerHTML)
 let endGameContainer = document.createElement('div')
 endGameContainer.classList.add('contenu-modal-victory')
 let firstBloc = document.createElement('p')
 firstBloc.textContent= `Bravo, vous avez trouvé le mot mystère : ${motMystere}`
-console.log('firstBloc : '+ firstBloc.innerHTML)
 
 let secondBloc = document.createElement('p')
 secondBloc.append(`Vous l'avez trouvé en ${numberOfTries} ${tentative} ! ${comment}`)
-console.log('secondBloc : '+ secondBloc.innerHTML)
 
 let thirdBloc = document.createElement('p')
 thirdBloc.append(`Temps écoulé : ${elapsedTime[0]} ${infoMinute} et ${elapsedTime[1]} secondes.`)
-console.log('thirdBloc : '+ thirdBloc.innerHTML)
 
 let bloc = [firstBloc, secondBloc, thirdBloc]
 
