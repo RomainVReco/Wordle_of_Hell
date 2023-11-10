@@ -73,7 +73,7 @@ export function checkUserWord(userWord, motMystere){
 
 export function checkNumberOfTries(numberOfTry, userTries){
     console.log("je suis dans checkNumberOfTries")
-    let motifDefaite = "Nombre maximum d'essais atteints !"
+    let motifDefaite = "Nombre maximum d'essais atteint !"
     console.log(numberOfTry)
     console.log(userTries)
     if (userTries == numberOfTry ){
