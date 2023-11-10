@@ -35,7 +35,6 @@ export function concatUserInput(userWord) {
 // Vérifie si la saisie du joueur existe dans le référentiel
 export function checkWordExists(userWord, words){
     let concatUserWord = concatUserInput(userWord)
-    let numberLetters = userWord[0].length
     if (words.includes(concatUserWord)) {
         return true
     }
@@ -49,7 +48,6 @@ export function checkWordExists(userWord, words){
  */
 // Vérifie si la saisie du contient des lettres du mot mystère et renvoie une Map
 export function checkUserWord(userWord, motMystere){
-    let concatUserWord = concatUserInput(userWord)
     let breakMotMystere = ''
     const userWordChecked = new Map()
 
