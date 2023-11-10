@@ -1,7 +1,7 @@
 import {allWords} from './words.js'
 
 const words = allWords()
-const nombreEssais = 2
+const nombreEssais = 1
 const time = 500
 const numberOfLines = nombreEssais
 const numberOfLetters = 5;

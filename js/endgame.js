@@ -82,13 +82,47 @@ export function lostGame(motifDefaite){
     let motMystere = getMotMystere()
     console.log("Je suis dans lostgame()")
     console.log("Motif defaite")
-    window.location.href = "gameover.html"
-    gameOver.createSpriteImage();
-    gameOver.repeatSpriteCreation();
-    gameOver.addDivMotMystere(motMystere)
-    // gameOver.displaySprites([]);
-    // gameOver.startAnimation();
-}
+
+    let keyboardContainer = document.getElementById('keyboard-container')
+    let endGameContainer = document.createElement('div')
+    endGameContainer.classList.add('contenu-modal-victory')
+
+    let blocText = [`Perdu ! ${motifDefaite}`, `Le mot mystère était : ${motMystere}`]
+    let blocList = []
+
+    for (let i=0; i<blocText.length;i++){
+        let bloc = document.createElement('p')
+        bloc.append(blocText[i])
+        bloc.classList.add('victory-p')
+        blocList.push(bloc)
+    }
+
+    for (let i=0;i<blocList.length;i++){
+        endGameContainer.appendChild(blocList[i])
+    }
+
+    let replay = ajouterBoutonsReplay()
+    endGameContainer.appendChild(replay)
+    // gameOver.addDivMotMystere(motMystere)
+
+    let regle = document.querySelector(".reglesDuJeu")
+    let nombreEssais = document.querySelector('.nombreDEssais')
+    let timer = document.querySelector('.timer')
+
+    regle.remove()
+    nombreEssais.remove()
+    timer.remove()
+
+    console.log('endGameContainer : '+ endGameContainer.innerHTML)
+    keyboardContainer.innerHTML=''
+    keyboardContainer.append(endGameContainer)
+        
+        // gameOver.createSpriteImage();
+        // gameOver.repeatSpriteCreation();
+
+        // gameOver.displaySprites([]);
+        // gameOver.startAnimation();
+    }
 
 function calculerScore(tempsRestant, nombreEssais){
     let score = (100*tempsRestant)/nombreEssais;
