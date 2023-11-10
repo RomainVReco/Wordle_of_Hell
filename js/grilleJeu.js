@@ -46,7 +46,7 @@ export function remplirMot (clef) {
 
 export function effacerLettre () {
     const elementsLettre = elementsMot[numLigne - 1].querySelectorAll(".mot");
-
+    
     for (let index = elementsLettre.length -1; index >= 0; index--) {
         console.log(elementsLettre[index].innerText); 
         const element = elementsLettre[index];
