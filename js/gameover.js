@@ -1,13 +1,10 @@
 export function addDivMotMystere(motMystere) {
-  console.log("Je suis dans la fonction addDivMotMystere")
   var motMystereDisplay = document.getElementById("motMystereDisplay");
   motMystereDisplay.innerHTML = motMystere;
-  console.log(motMystereDisplay.innerHTML)
 }
 
 export function repeatSpriteCreation() {
     var intervalId;
-    console.log("je suis dans repeat Sprite Creation")
     intervalId = setInterval(createSpriteImage, 300); // Crée une image avec sprite à chaque intervalle de 300 millisecondes
 
     setTimeout(function () {
@@ -26,7 +23,6 @@ function removeRandomImages() {
   });
 }
 function createSpriteImage() {
-    console.log("createSpriteImage est appelé")
   const newDiv = document.createElement('div');
   newDiv.className = 'random-image';
 
@@ -53,7 +49,6 @@ function createSpriteImage() {
 }
 
 function animateSprite(imgElement) {
-    console.log("animateSprite est appelé")
   let currentFrame = 1;
   const spriteInterval = setInterval(function () {
     currentFrame = (currentFrame % 26) + 1;
@@ -62,7 +57,6 @@ function animateSprite(imgElement) {
 }
 
 function isOverlap(x, y) {
-    console.log("isOverLap est appelé")
   const elements = document.getElementsByClassName('random-image');
   for (let i = 0; i < elements.length; i++) {
     const element = elements[i];

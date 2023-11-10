@@ -53,7 +53,6 @@ allKeysKeyboard.forEach((element) => {
 })
 
 function updateKeyboardColor(checkedMap){
-    console.log("Je suis dans la fonction updateKeyboardColor")
     allKeysKeyboard.forEach((element) => {
         for (let value of checkedMap.values()){
             console.Log
@@ -93,16 +92,13 @@ function updateKeyboardColor(checkedMap){
     })
 }
 
-console.log(userWord)
 function allCheck(){
     if (mesControles.checkUserWordLength(userWord, numberLetters) && (mesControles.checkWordExists(userWord, words))) {
         var userTryChecked = mesControles.checkUserWord(userWord,motMystere)
-        console.log(userTryChecked)
     }
     if ((userTryChecked !=undefined) && (userTryChecked.size == numberLetters)) {
         updateKeyboardColor(userTryChecked)
         userTries += 1
-        console.log("Essai : " + userTries)
         document.getElementById('nombresEssais').textContent = userTries;
         finJeu = mesControles.checkVictory(userWord, motMystere, userTries)||mesControles.checkNumberOfTries(nombreEssais, userTries) ? true : false
         configWordle.setFinJeu(finJeu)
@@ -125,7 +121,6 @@ document.addEventListener('keydown', function(event){
 document.getElementById('back-key').addEventListener('click', function(){
     if (userWord.length != 0) {
         userWord = mesControles.eraseLastEntry(userWord)
-        console.log(userWord)
     }
     else {
         return
@@ -135,7 +130,6 @@ document.addEventListener('keydown', function(event){
     if (event.key === 'Backspace') {
         if (userWord.length != 0) {
             userWord = mesControles.eraseLastEntry(userWord)
-            console.log(userWord)
         }
         else {
             return

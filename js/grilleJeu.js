@@ -21,11 +21,9 @@ function genererGrille(nombresEssais, nombresLettres) {
     conteneurMots.classList.add('conteneurMots');
 
     for (let i = 0; i < nombresEssais; i++) {
-        console.log("je suis dans la ligne")
         let ligneMot = document.createElement('div');
         ligneMot.classList.add('ligneMot');
         for (let j = 0; j < nombresLettres; j++) {
-            console.log("je suis dans la colonne")
             let mot = document.createElement('div');
             mot.classList.add('mot');
             ligneMot.append(mot);
@@ -48,7 +46,6 @@ export function effacerLettre () {
     const elementsLettre = elementsMot[numLigne - 1].querySelectorAll(".mot");
     
     for (let index = elementsLettre.length -1; index >= 0; index--) {
-        console.log(elementsLettre[index].innerText); 
         const element = elementsLettre[index];
         if (element.innerText !== '') {
             element.innerText = '';
@@ -60,18 +57,12 @@ export function effacerLettre () {
 
 export function updateGridColor (userWord) {
     const elementsLettre = elementsMot[numLigne - 1].querySelectorAll(".mot")
-    // console.log(elementsLettre[0])
 
     for (let i=0; i<motMystere.length; i++){
-        console.log(elementsLettre[i].innerText, motMystere[i])
-        console.log(elementsLettre[i].innerText==motMystere[i])
-
         if (elementsLettre[i].innerText==motMystere[i]) {
             elementsLettre[i].classList.add("mot-vert");
         }
-        
         else if (motMystere.includes(elementsLettre[i].innerText)){
-            console.log(motMystere.includes(elementsLettre[i].innerText))
             elementsLettre[i].classList.add("mot-jaune");
         }
         else if (!(motMystere.includes(elementsLettre[i].innerText))) {

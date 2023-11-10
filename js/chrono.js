@@ -42,4 +42,3 @@ function affichageTempsJeu (tempsRestant){
     const resultat = [minutes,secondes]
     return resultat
 }
-// console.log(affichageTempsJeu(milliseconds))

@@ -72,7 +72,6 @@ regle.remove()
 nombreEssais.remove()
 timer.remove()
 
-console.log('endGameContainer : '+ endGameContainer.innerHTML)
 keyboardContainer.innerHTML=''
 keyboardContainer.append(endGameContainer)
 
@@ -80,9 +79,6 @@ keyboardContainer.append(endGameContainer)
 
 export function lostGame(motifDefaite){
     let motMystere = getMotMystere()
-    console.log("Je suis dans lostgame()")
-    console.log("Motif defaite")
-
     let keyboardContainer = document.getElementById('keyboard-container')
     let endGameContainer = document.createElement('div')
     endGameContainer.classList.add('contenu-modal-victory')
@@ -103,7 +99,6 @@ export function lostGame(motifDefaite){
 
     let replay = ajouterBoutonsReplay()
     endGameContainer.appendChild(replay)
-    // gameOver.addDivMotMystere(motMystere)
 
     let regle = document.querySelector(".reglesDuJeu")
     let nombreEssais = document.querySelector('.nombreDEssais')
@@ -113,7 +108,6 @@ export function lostGame(motifDefaite){
     nombreEssais.remove()
     timer.remove()
 
-    console.log('endGameContainer : '+ endGameContainer.innerHTML)
     keyboardContainer.innerHTML=''
     keyboardContainer.append(endGameContainer)
     gameOver.repeatSpriteCreation()

@@ -4,7 +4,6 @@ document.addEventListener("DOMContentLoaded", function () {
     sections.forEach((section) => {
       section.addEventListener("click", function () {
         const content = section.querySelector(".content");
-        console.log (content)
         if (content.style.display === "block") {
           content.style.display = "none";
         } else {

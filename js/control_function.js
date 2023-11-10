@@ -9,7 +9,6 @@ export function getLetterKey(letter, userWord, numberLetters) {
         userWord.push(letter)
         maGrille.remplirMot(letter)
     }
-    console.log(userWord, userWord.length)
     return userWord
 }
 
@@ -43,9 +42,7 @@ export function checkWordExists(userWord, words){
         return false
     }
 }
- /*
- xcvxwc
- */
+
 // Vérifie si la saisie du contient des lettres du mot mystère et renvoie une Map
 export function checkUserWord(userWord, motMystere){
     let breakMotMystere = ''
@@ -54,8 +51,6 @@ export function checkUserWord(userWord, motMystere){
     for (let j=0; j<motMystere.length; j++){
         breakMotMystere += motMystere[j]
     }
-    console.log(breakMotMystere)
-
     for (let i=0; i<motMystere.length; i++){
         if (breakMotMystere[i]==userWord[i]) {
             userWordChecked.set(i, [1,userWord[i]])
@@ -72,17 +67,13 @@ export function checkUserWord(userWord, motMystere){
     }
 
 export function checkNumberOfTries(numberOfTry, userTries){
-    console.log("je suis dans checkNumberOfTries")
     let motifDefaite = "Nombre maximum d'essais atteint !"
-    console.log(numberOfTry)
-    console.log(userTries)
     if (userTries == numberOfTry ){
-        console.log(userTries == numberOfTry)
         lostGame(motifDefaite)
         return true
     }
     
-    else console.log("checknumerberofTries va retourner un false"); false
+    else false
 
 }
 
