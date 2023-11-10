@@ -10,8 +10,7 @@ var elapsedTime = 0
 var finJeu = false
 
 let shuffleInt = Math.floor(Math.random() * words.length);
-const motMystere = "JUSEE"
-// words[shuffleInt]
+const motMystere = words[shuffleInt]
 console.log("Mot mystère : "+motMystere)
 
 export function getNomnbreEssais(){
