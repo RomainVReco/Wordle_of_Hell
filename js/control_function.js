@@ -71,10 +71,13 @@ export function checkUserWord(userWord, motMystere){
         return userWordChecked;
     }
 
-export function checkNumberOfTries(numberOfTry, userTries){
+export function checkNumberOfTries(numberOfTry, userTries, motMystere){
+    let motifDefaite = "Nombre maximum d'essais atteints !"
     if (userTries == numberOfTry ){
-        lostGame()
+        lostGame(motMystere, motifDefaite)
+        return true
     }
+    else false
 
 }
 

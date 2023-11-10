@@ -1,4 +1,5 @@
 import {getElapsedTime, getTime} from './configWordle.js'
+import * as gameOver from './gameover.js'
 
 export function victory(motMystere, userTries){
    let numberOfTries = userTries
@@ -75,6 +76,13 @@ console.log('endGameContainer : '+ endGameContainer.innerHTML)
 keyboardContainer.innerHTML=''
 keyboardContainer.append(endGameContainer)
 
+}
+
+export function lostGame(motMystere, motifDefaite){
+    window.location.href = "gameover.html"
+    gameOver.addDivMotMystere(motMystere)
+    gameOver.displaySprites([]);
+    gameOver.startAnimation();
 }
 
 function calculerScore(tempsRestant, nombreEssais){
