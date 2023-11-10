@@ -5,6 +5,12 @@ export function addDivMotMystere(motMystere) {
   console.log(motMystereDisplay.innerHTML)
 }
 
+export function repeatSpriteCreation() {
+    console.log("je suis dans repeat Sprite Creation")
+    setInterval(createSpriteImage, 300); // Crée une image avec sprite à chaque intervalle de 300 millisecondes
+    return
+}
+
 export function createSpriteImage() {
   const newDiv = document.createElement('div');
   newDiv.className = 'random-image';
@@ -57,10 +63,6 @@ function isOverlap(x, y) {
   return false;
 }
 
-export function repeatSpriteCreation() {
-  setInterval(createSpriteImage, 300); // Crée une image avec sprite à chaque intervalle de 300 millisecondes
-}
-
 export function addSpriteScriptAndStyle() {
     function createSpriteImage() {
       // Crée une nouvelle div
@@ -85,7 +87,7 @@ export function addSpriteScriptAndStyle() {
       // Ajoute l'image à la div
       newDiv.appendChild(newImg);
 
-      // Génère des positions x et y aléatoires sans superposition
+    //   Génère des positions x et y aléatoires sans superposition
       var randomX, randomY;
       do {
         randomX = Math.floor(Math.random() * window.innerWidth);
@@ -140,17 +142,10 @@ export function addSpriteScriptAndStyle() {
     }
 
     // Appeler la fonction pour répéter la création d'images avec sprites
-    for (let j=0; j<3;j++){
         repeatSpriteCreation();
     }
 
-    // Fonction pour répéter la création d'images avec sprites
-    function repeatSpriteCreation() {
-      // Crée une image avec sprite à chaque intervalle de 5 secondes
-      setInterval(function () {
-        createSpriteImage();
-      }, 300); // Intervalle de 5 secondes
-    }
 
-}
+
+
 
