@@ -83,6 +83,7 @@ export function lostGame(motifDefaite){
     console.log("Je suis dans lostgame()")
     console.log("Motif defaite")
     window.location.href = "gameover.html"
+    gameOver.repeatSpriteCreation();
     gameOver.addDivMotMystere(motMystere)
     gameOver.displaySprites([]);
     gameOver.startAnimation();
@@ -94,7 +95,6 @@ function calculerScore(tempsRestant, nombreEssais){
 };
 
 function ajouterBoutonsReplay() {
-    
     var boutonsDiv = document.createElement("div")
     boutonsDiv.setAttribute("id","boutonsDiv")
     const boutonReplay = document.createElement('button');

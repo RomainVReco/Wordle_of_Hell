@@ -77,12 +77,12 @@
     }
 
     // Appeler la fonction pour répéter la création d'images avec sprites
-    repeatSpriteCreation();
+    // 
 
     // Fonction pour répéter la création d'images avec sprites
-    function repeatSpriteCreation() {
-      // Crée une image avec sprite à chaque intervalle de 5 secondes
-      setInterval(function () {
+export function repeatSpriteCreation() {
+        // Crée une image avec sprite à chaque intervalle de 5 secondes
+        setInterval(function () {
         createSpriteImage();
       }, 300); // Intervalle de 5 secondes
     }
