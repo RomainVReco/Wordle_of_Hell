@@ -60,6 +60,8 @@ for (let i=0; i<blocText.length;i++){
 for (let i=0;i<blocList.length;i++){
     endGameContainer.appendChild(blocList[i])
 }
+let replay = ajouterBoutonsReplay()
+endGameContainer.appendChild(replay)
 
 let regle = document.querySelector(".reglesDuJeu")
 let nombreEssais = document.querySelector('.nombreDEssais')
@@ -72,9 +74,36 @@ timer.remove()
 console.log('endGameContainer : '+ endGameContainer.innerHTML)
 keyboardContainer.innerHTML=''
 keyboardContainer.append(endGameContainer)
+
 }
 
 function calculerScore(tempsRestant, nombreEssais){
     let score = (100*tempsRestant)/nombreEssais;
     return score;
 };
+
+function ajouterBoutonsReplay() {
+    
+    var boutonsDiv = document.createElement("div")
+    boutonsDiv.setAttribute("id","boutonsDiv")
+    const boutonReplay = document.createElement('button');
+    const boutonRetour = document.createElement('button');
+    
+    boutonReplay.textContent = 'Replay';
+    boutonRetour.textContent = 'Retour Accueil';
+
+    boutonReplay.classList.add('bouton', 'replay');
+    boutonRetour.classList.add('bouton', 'retour');
+
+    boutonReplay.addEventListener('click', function() {
+      window.location.href = './index.html'; 
+    });
+
+    boutonRetour.addEventListener('click', function() {
+      window.location.href = './accueil.html'; 
+    });
+
+    boutonsDiv.appendChild(boutonReplay);
+    boutonsDiv.appendChild(boutonRetour);
+    return boutonsDiv
+}
