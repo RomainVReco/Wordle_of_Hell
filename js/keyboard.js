@@ -11,8 +11,8 @@ const words = allWords()
 const enter = "ENTER"
 const backspace = "◄"
 var userWord = []
-var numberLetters = 5
-const nombreEssais = 6
+var numberLetters = configWordle.getNumberOfLetters()
+const nombreEssais = configWordle.getNomnbreEssais()
 var userTries = 0
 const motMystere = configWordle.getMotMystere()
 var finJeu = configWordle.getFinjeu()
@@ -107,7 +107,7 @@ document.getElementById('enter-key').addEventListener('click', function(){
         userTries += 1
         console.log("Essai : " + userTries)
         document.getElementById('nombresEssais').textContent = userTries;
-        finJeu = mesControles.checkVictory(userWord, motMystere, userTries||mesControles.checkNumberOfTries(nombreEssais, userTries, motMystere))
+        finJeu = (mesControles.checkVictory(userWord, motMystere, userTries)||mesControles.checkNumberOfTries(nombreEssais, userTries))
         configWordle.setFinJeu(finJeu)
         userWord = []
     }

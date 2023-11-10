@@ -1,4 +1,4 @@
-import {getElapsedTime, getTime} from './configWordle.js'
+import {getElapsedTime, getMotMystere, getTime} from './configWordle.js'
 import * as gameOver from './gameover.js'
 
 export function victory(motMystere, userTries){
@@ -78,7 +78,10 @@ keyboardContainer.append(endGameContainer)
 
 }
 
-export function lostGame(motMystere, motifDefaite){
+export function lostGame(motifDefaite){
+    let motMystere = getMotMystere()
+    console.log("Je suis dans lostgame()")
+    console.log("Motif defaite")
     window.location.href = "gameover.html"
     gameOver.addDivMotMystere(motMystere)
     gameOver.displaySprites([]);

@@ -1,5 +1,5 @@
 import * as maGrille from './grilleJeu.js'
-import {victory} from './endgame.js'
+import {victory, lostGame} from './endgame.js'
 
 export function getLetterKey(letter, userWord, numberLetters) {
     if (userWord.length == numberLetters) {
@@ -71,13 +71,18 @@ export function checkUserWord(userWord, motMystere){
         return userWordChecked;
     }
 
-export function checkNumberOfTries(numberOfTry, userTries, motMystere){
+export function checkNumberOfTries(numberOfTry, userTries){
+    console.log("je suis dans checkNumberOfTries")
     let motifDefaite = "Nombre maximum d'essais atteints !"
+    console.log(numberOfTry)
+    console.log(userTries)
     if (userTries == numberOfTry ){
-        lostGame(motMystere, motifDefaite)
+        console.log(userTries == numberOfTry)
+        lostGame(motifDefaite)
         return true
     }
-    else false
+    
+    else console.log("checknumerberofTries va retourner un false"); false
 
 }
 
@@ -96,9 +101,6 @@ export function errorUserInput(string){
 
 export function checkVictory(userWord, motMystere, userTries) {
     let concatUserWord = concatUserInput(userWord)
-    console.log("concatUserWord : "+concatUserWord)
-    console.log("motMystere :"+motMystere)
-    console.log("concatUserWord === motMystere : " + concatUserWord === motMystere)
     if (concatUserWord === motMystere) {
         victory(motMystere, userTries)
         return true
