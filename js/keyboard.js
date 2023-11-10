@@ -107,9 +107,8 @@ document.getElementById('enter-key').addEventListener('click', function(){
         userTries += 1
         console.log("Essai : " + userTries)
         document.getElementById('nombresEssais').textContent = userTries;
-        finJeu = mesControles.checkVictory(userWord, motMystere, userTries)
+        finJeu = mesControles.checkVictory(userWord, motMystere, userTries||mesControles.checkNumberOfTries(nombreEssais, userTries))
         configWordle.setFinJeu(finJeu)
-        mesControles.checkNumberOfTries(nombreEssais, userTries)
         userWord = []
     }
 });
