@@ -1,67 +1,88 @@
-const totalSprites = 60; // Nombre de sprites à afficher simultanément
-const totalFrames = 26; // Nombre total de frames dans chaque sprite
+// Fonction pour créer une image avec animation de sprites
+    function createSpriteImage() {
+      // Crée une nouvelle div
+      var newDiv = document.createElement('div');
 
-function checkCollision(sprite, sprites) {
-    const spriteRect = sprite.getBoundingClientRect();
-    for (let i = 0; i < sprites.length; i++) {
-        const otherSprite = sprites[i];
-        if (otherSprite !== sprite) {
-            const otherRect = otherSprite.getBoundingClientRect();
-            if (
-                spriteRect.left < otherRect.right &&
-                spriteRect.right > otherRect.left &&
-                spriteRect.top < otherRect.bottom &&
-                spriteRect.bottom > otherRect.top
-            ) {
-                return true; // Il y a collision
-            }
+      // Ajoute une classe à la div pour le style
+      newDiv.className = 'random-image';
+
+      // Crée une nouvelle image
+      var newImg = document.createElement('img');
+
+      // Définir la taille de l'image (ajustez selon vos besoins)
+      newImg.style.width = '80px';
+      newImg.style.height = '80px';
+
+      // Ajouter la classe 'sprite' pour activer l'animation
+      newImg.className = 'sprite';
+
+      // Définir la source de l'image (première image)
+      newImg.src = './assets/explos_1.svg';
+
+      // Ajoute l'image à la div
+      newDiv.appendChild(newImg);
+
+      // Génère des positions x et y aléatoires sans superposition
+      var randomX, randomY;
+      do {
+        randomX = Math.floor(Math.random() * window.innerWidth);
+        randomY = Math.floor(Math.random() * window.innerHeight);
+      } while (isOverlap(randomX, randomY));
+
+      // Définir la position de la div en fonction des positions aléatoires
+      newDiv.style.left = randomX + 'px';
+      newDiv.style.top = randomY + 'px';
+
+      // Ajoute la div au corps du document
+      document.body.appendChild(newDiv);
+
+      // Active l'animation de sprites
+      animateSprite(newImg);
+    }
+
+    // Fonction pour activer l'animation de sprites
+    function animateSprite(imgElement) {
+      var currentFrame = 1;
+
+      // Définir l'intervalle pour changer les images
+      var spriteInterval = setInterval(function () {
+        currentFrame++;
+        if (currentFrame > 26) {
+          // Réinitialiser à la première image après la dernière image
+          currentFrame = 1;
         }
-    }
-    return false; // Pas de collision détectée
-}
 
-function animateSprite(sprite, currentFrame) {
-    const frameWidth = 100; // Largeur d'une image dans le sprite en pixels
-    sprite.style.backgroundPosition = `-${currentFrame * frameWidth}px 0`;
-    currentFrame = (currentFrame + 1) % totalFrames; // Permet de revenir à 0 après la dernière frame
-}
-
-export function displaySprites(sprites) {
-    if (sprites.length < totalSprites) {
-        const sprite = document.createElement('div');
-        sprite.classList.add('sprite');
-        sprite.style.backgroundImage = `url('./assets/explos_${sprites.length % totalFrames + 1}.svg')`; // Charge les sprites de explos_1 à explos_26
-
-        let randomX, randomY, collisionDetected;
-
-        do {
-            collisionDetected = false;
-            randomX = Math.floor(Math.random() * (window.innerWidth - 100));
-            randomY = Math.floor(Math.random() * (window.innerHeight - 100));
-
-            sprite.style.left = `${randomX}px`;
-            sprite.style.top = `${randomY}px`;
-
-            collisionDetected = checkCollision(sprite, sprites);
-        } while (collisionDetected);
-
-        document.getElementById('spritesContainer').appendChild(sprite);
-        sprite.style.opacity = 1; // Faire apparaître le sprite avec une transition
-        sprites.push(sprite);
+        // Mettre à jour la source de l'image pour afficher la prochaine image
+        imgElement.src = './assets/explos_' + currentFrame + '.svg';
+      }, 100); // Ajustez la vitesse d'animation selon vos besoins
     }
 
-    setTimeout(() => displaySprites(sprites), 100);
-}
+    function isOverlap(x, y) {
+      // Vérifie s'il y a une superposition avec une autre image
+      var elements = document.getElementsByClassName('random-image');
+      for (var i = 0; i < elements.length; i++) {
+        var element = elements[i];
+        var rect = element.getBoundingClientRect();
+        if (
+          x < rect.right &&
+          x + 50 > rect.left &&
+          y < rect.bottom &&
+          y + 50 > rect.top
+        ) {
+          // Il y a une superposition
+          return true;
+        }
+      }
+      return false;
+    }
 
-export function startAnimation() {
-    const sprites = document.querySelectorAll('.sprite');
+    // Appeler la fonction pour répéter la création d'images avec sprites
+    repeatSpriteCreation();
 
-    sprites.forEach((sprite, index) => {
-        setInterval(() => animateSprite(sprite, index), 100); // Change les sprites toutes les 1000ms
-    });
-}
-
-export function addDivMotMystere(motMystere){
-    let motMystereDisplay = document.getElementById("motMystereDisplay");
-    motMystereDisplay.innerHTML = motMystere;
-}
+    // Fonction pour répéter la création d'images avec sprites
+    function repeatSpriteCreation() {
+      // Crée une image avec sprite à chaque intervalle de 5 secondes
+      setInterval(function () {
+        createSpriteImage();
+      }, 300); // Intervalle de 5 secondes
+    }
