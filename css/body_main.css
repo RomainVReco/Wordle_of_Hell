@@ -41,3 +41,8 @@ i {
 .nombreDEssais p {
     padding-right: 5px;
 }
+
+.random-image {
+    z-index: -1;
+    position: absolute;
+}

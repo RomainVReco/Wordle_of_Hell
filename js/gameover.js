@@ -62,10 +62,6 @@ export function repeatSpriteCreation() {
 }
 
 export function addSpriteScriptAndStyle() {
-    // Ajoute le script au corps du document
-    var script = document.createElement('script');
-    script.innerHTML = `
-    // Fonction pour créer une image avec animation de sprites
     function createSpriteImage() {
       // Crée une nouvelle div
       var newDiv = document.createElement('div');
@@ -144,7 +140,9 @@ export function addSpriteScriptAndStyle() {
     }
 
     // Appeler la fonction pour répéter la création d'images avec sprites
-    repeatSpriteCreation();
+    for (let j=0; j<3;j++){
+        repeatSpriteCreation();
+    }
 
     // Fonction pour répéter la création d'images avec sprites
     function repeatSpriteCreation() {
@@ -153,18 +151,6 @@ export function addSpriteScriptAndStyle() {
         createSpriteImage();
       }, 300); // Intervalle de 5 secondes
     }
-    `;
-    document.body.appendChild(script);
 
-    // Ajoute le style à l'en-tête du document
-    var style = document.createElement('style');
-    style.innerHTML = `
-        .random-image {
-            position: absolute;
-        }
-    `;
-    document.head.appendChild(style);
 }
 
-// Appelle la fonction pour ajouter le script et le style au document
-// addSpriteScriptAndStyle();
