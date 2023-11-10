@@ -116,7 +116,7 @@ export function lostGame(motifDefaite){
     console.log('endGameContainer : '+ endGameContainer.innerHTML)
     keyboardContainer.innerHTML=''
     keyboardContainer.append(endGameContainer)
-    gameOver.addSpriteScriptAndStyle()
+    gameOver.repeatSpriteCreation()
     }
 
 function calculerScore(tempsRestant, nombreEssais){
