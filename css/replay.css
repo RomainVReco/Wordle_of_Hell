@@ -2,7 +2,7 @@
     padding: 10px;
     margin: 5px;
     background-color: #4CAF50;
-    color: white;
+    color: black;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -11,9 +11,9 @@
 }
 
 .replay {
-    background-color: #39db34;
+    background-color: green;
 }
 
 .retour {
-    background-color: #ce1500;
+    background-color: #cfcfcf;
 }
