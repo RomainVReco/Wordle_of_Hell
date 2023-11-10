@@ -83,10 +83,11 @@ export function lostGame(motifDefaite){
     console.log("Je suis dans lostgame()")
     console.log("Motif defaite")
     window.location.href = "gameover.html"
+    gameOver.createSpriteImage();
     gameOver.repeatSpriteCreation();
     gameOver.addDivMotMystere(motMystere)
-    gameOver.displaySprites([]);
-    gameOver.startAnimation();
+    // gameOver.displaySprites([]);
+    // gameOver.startAnimation();
 }
 
 function calculerScore(tempsRestant, nombreEssais){
