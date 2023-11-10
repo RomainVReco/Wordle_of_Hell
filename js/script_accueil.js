@@ -20,5 +20,5 @@ function randomLetter() {
 }
   
 // Création continue de lettres tombantes
-setInterval(createFallingLetter, 300); // Crée une nouvelle lettre toutes les 300 millisecondes
+setInterval(createFallingLetter, 600); // Crée une nouvelle lettre toutes les 300 millisecondes
   
