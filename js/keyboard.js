@@ -94,10 +94,7 @@ function updateKeyboardColor(checkedMap){
 }
 
 console.log(userWord)
-
-
-// listener clavier
-document.getElementById('enter-key').addEventListener('click', function(){
+function allCheck(){
     if (mesControles.checkUserWordLength(userWord, numberLetters) && (mesControles.checkWordExists(userWord, words))) {
         var userTryChecked = mesControles.checkUserWord(userWord,motMystere)
         console.log(userTryChecked)
@@ -111,23 +108,18 @@ document.getElementById('enter-key').addEventListener('click', function(){
         configWordle.setFinJeu(finJeu)
         userWord = []
     }
+}
+
+// listener clavier
+document.getElementById('enter-key').addEventListener('click', function(){
+    allCheck()
 });
 
 // problème de fonctionnement avec la touche entrée ==> elle permet la saisie d'une lettre aussi 
 document.addEventListener('keydown', function(event){
     if (event.key === 'Enter') {
-        if (mesControles.checkUserWordLength(userWord, numberLetters) && (mesControles.checkWordExists(userWord, words))) {
-            var userTryChecked = mesControles.checkUserWord(userWord,motMystere)
-            console.log(userTryChecked)
-        }
-        if ((userTryChecked !=undefined) && (userTryChecked.size == numberLetters)) {
-            updateKeyboardColor(userTryChecked)
-            userTries += 1
-            document.getElementById('nombresEssais').textContent = userTries;
-            mesControles.checkVictory(userWord, motMystere, userTries)
-            mesControles.checkNumberOfTries(nombreEssais, userTries)
-            userWord = []
-        }
+        event.preventDefault()
+        allCheck()
     }   
 });
 document.getElementById('back-key').addEventListener('click', function(){
