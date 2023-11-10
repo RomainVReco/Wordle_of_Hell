@@ -28,8 +28,9 @@ function actualiserChrono() {
     // Si le temps est écoulé
     if (tempsRestant == 0) {
         elementChrono.innerHTML = `<i class="fa-solid fa-clock"></i><br><br> Temps écoulé !`; 
-        lostGame(tempsRestant)
         setFinJeu(true)
+        lostGame(tempsRestant, motifDefaite)
+
     }
 }
 // Appel de la fonction toutes les 1 seconde pour mettre à jour le chrono

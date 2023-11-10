@@ -1,9 +1,5 @@
 const totalSprites = 60; // Nombre de sprites à afficher simultanément
 const totalFrames = 26; // Nombre total de frames dans chaque sprite
-let motMystere = "super";
-
-let motMystereDisplay = document.getElementById("motMystereDisplay");
-motMystereDisplay.innerHTML = motMystere;
 
 function checkCollision(sprite, sprites) {
     const spriteRect = sprite.getBoundingClientRect();
@@ -30,11 +26,11 @@ function animateSprite(sprite, currentFrame) {
     currentFrame = (currentFrame + 1) % totalFrames; // Permet de revenir à 0 après la dernière frame
 }
 
-function displaySprites(sprites) {
+export function displaySprites(sprites) {
     if (sprites.length < totalSprites) {
         const sprite = document.createElement('div');
         sprite.classList.add('sprite');
-        sprite.style.backgroundImage = `url('explos_${sprites.length % totalFrames + 1}.svg')`; // Charge les sprites de explos_1 à explos_26
+        sprite.style.backgroundImage = `url('./assets/explos_${sprites.length % totalFrames + 1}.svg')`; // Charge les sprites de explos_1 à explos_26
 
         let randomX, randomY, collisionDetected;
 
@@ -57,7 +53,7 @@ function displaySprites(sprites) {
     setTimeout(() => displaySprites(sprites), 100);
 }
 
-function startAnimation() {
+export function startAnimation() {
     const sprites = document.querySelectorAll('.sprite');
 
     sprites.forEach((sprite, index) => {
@@ -65,5 +61,7 @@ function startAnimation() {
     });
 }
 
-displaySprites([]);
-startAnimation();
+export function addDivMotMystere(motMystere){
+    let motMystereDisplay = document.getElementById("motMystereDisplay");
+    motMystereDisplay.innerHTML = motMystere;
+}
