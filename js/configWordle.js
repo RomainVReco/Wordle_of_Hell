@@ -1,8 +1,8 @@
 import {allWords} from './words.js'
 
 const words = allWords()
-const nombreEssais = 1
-const time = 500
+const nombreEssais = 6
+const time = 300
 const numberOfLines = nombreEssais
 const numberOfLetters = 5;
 var numberOfTries = 0

@@ -6,13 +6,26 @@ export function addDivMotMystere(motMystere) {
 }
 
 export function repeatSpriteCreation() {
+    var intervalId;
     console.log("je suis dans repeat Sprite Creation")
-    setInterval(createSpriteImage, 300); // Crée une image avec sprite à chaque intervalle de 300 millisecondes
+    intervalId = setInterval(createSpriteImage, 300); // Crée une image avec sprite à chaque intervalle de 300 millisecondes
 
-    return
+    setTimeout(function () {
+      clearInterval(intervalId); // Arrête l'intervalle
+      removeRandomImages();
+    }, 9000);
+    
 }
+function removeRandomImages() {
+  // Sélectionne toutes les div avec la classe "random-image"
+  var elements = document.querySelectorAll('.random-image');
 
-export function createSpriteImage() {
+  // Parcours et supprime chaque élément
+  elements.forEach(function (element) {
+    element.parentNode.removeChild(element);
+  });
+}
+function createSpriteImage() {
     console.log("createSpriteImage est appelé")
   const newDiv = document.createElement('div');
   newDiv.className = 'random-image';

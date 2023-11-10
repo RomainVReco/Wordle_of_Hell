@@ -26,6 +26,7 @@
     margin-bottom: 0.4em;
     background-color: black;
     color: white;
+    font-weight: bold;
     border-radius: 3px;
     display: flex;
     justify-content: center;
@@ -33,13 +34,19 @@
 }
 
 .mot-vert{
-    background-color: rgb(19, 192, 0);
+    background-color: green;
+    color: black;
+    font-weight: bold;
 }
 
 .mot-jaune{
     background-color: #ec8e00 ;
+    color: black;
+    font-weight: bold;
 }
 
 .mot-gris{
-    background-color: #8e8e8e ;
+    background-color: #cfcfcf ;
+    color: black;
+    font-weight: bold;
 }
