@@ -104,7 +104,7 @@ function allCheck(){
         userTries += 1
         console.log("Essai : " + userTries)
         document.getElementById('nombresEssais').textContent = userTries;
-        finJeu = (mesControles.checkVictory(userWord, motMystere, userTries)||mesControles.checkNumberOfTries(nombreEssais, userTries))
+        finJeu = mesControles.checkVictory(userWord, motMystere, userTries)||mesControles.checkNumberOfTries(nombreEssais, userTries) ? true : false
         configWordle.setFinJeu(finJeu)
         userWord = []
     }
